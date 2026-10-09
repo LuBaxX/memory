@@ -1,0 +1,1718 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rmemory</title>   
+        <link rel="stylesheet" href="rmemory.css">
+    </head>
+    <body>
+        <button id="menuBtn" class="menu-btn HIDDEN" aria-label="Retour au menu" onclick="showContent('StartContent')">Menu</button>
+        <div class="SHOW" id="StartContent">
+        <h1>Aide-mémoire des principaux langages :</h1>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+        </ul>
+            </div>
+
+        <!-- Liste de boutons -->
+        <div class="buttonContainer">
+            <button type="button" class="btn html-btn" onclick="showContent('htmlContent')" aria-controls="htmlContent">HTML</button>
+            <button type="button" class="btn css-btn" onclick="showContent('cssContent')" aria-controls="cssContent">CSS</button>
+            <button type="button" class="btn js-btn" onclick="showContent('jsContent')" aria-controls="jsContent">JavaScript</button>
+            <button type="button" class="btn js-adv-btn" onclick="showContent('jsComplexContent')" aria-controls="jsComplexContent">Front-End / Back-End</button>
+            <button type="button" class="btn py-btn" onclick="showContent('pythonContent')" aria-controls="pythonContent">Python</button>
+            <!-- global toggle removed per user request -->
+        </div>
+
+
+
+
+        <!-- Contenu HTML-->
+        <div id="htmlContent" class="HIDDEN" role="region" aria-labelledby="htmlHeading">
+            <h1 id="htmlHeading">HTML</h1>
+            <p>Ici, on veras en premier les bases de l'HTML et on appronfondira.</p>
+            
+
+        <details>
+            <summary>Les bases de l'HTML</summary>
+            <h2>Les balises de bases:</h2>
+            <p>C'est les premières balises à placer dans une page web pour créer du contenu.</p>
+            
+            <div class="console">
+                <code>
+                    
+                    &lt;!doctype html&gt; 
+
+                    <span class="console-marker">&lt;-- console --&gt;</span>
+                </code>
+            </div>
+            <p>c'est normal que la console n'affiche rien. </p>
+            <p>La balise "!doctype html" sert à commencer à coder en HTML, c'est aussi pour dire quelle version utiliser.</p>
+            <p>Maintenant, voyons la suite</p>
+            <div class="console">
+                <code>
+                    &lt;!doctype html&gt; 
+                    &nbsp;&nbsp;&lt;head&gt;  
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt; titre de la page &lt;/title&gt; 
+                    &nbsp;&nbsp;&lt;/head&gt; 
+                    &nbsp;&nbsp;&lt;body&gt; 
+                    &nbsp;&nbsp;&lt;/body&gt;  
+
+                    <span class="console-marker">&lt;-- console --&gt;</span>
+                </code>
+            </div>
+            <p>rien ne s'affiche et c'est normal, voyons chaqunes de ces balises.</p>
+            <p>head c'est la zone où on vas mettre toutes les infos du site (title, lien avec le fichier css, etc).</p>
+            <p>title c'est le titre de la page web (celui qui s'affiche en haut de l'onglet).</p>
+            <p>body c'est la zone où on vas mettre tout le contenu visible de la page web.</p>
+            <p> continuons sur ce qu'on peux mettre dans la balise body.</p>
+
+            <h2>Les balises de contenu:</h2>
+            <p>Les balises h1 à h6 créent des titres. Ainsi que les balises p pour les paragraphes.</p>
+            <p>Les balises img permettent d'insérer des images dans la page. Aisni que les balises a pour les liens.</p>
+            <p>La balise spéciale &lt;br&gt; est une balise sans fermeture pour insérer des espaces.</p>
+            <p>Les balises div et span sont des conteneurs génériques pour regrouper d'autres éléments.</p>
+            <p>Les balises ul, ol et li permettent de créer des listes. ul pour les listes non ordonnées, ol pour les listes ordonnées, et li pour les éléments de liste.</p>
+            <p>Les balises comme input, button, textarea, select, permettent de créer des éléments d'interface interactifs.</p>
+            <p>Voici un exemple d'input hors de la console:</p>
+            <input type="text" placeholder="Text"> 
+            <input type="password" placeholder="Password"> 
+            <input type="checkbox" checked>
+            <p id="span">checkbox</p> 
+            <input type="email" placeholder="Email"> 
+            <p>Pour cela, nous utilisons les éléments input avec différents attributs comme type et placeholder.</p> 
+
+            <p>puis en final, nous avons details et summary pour créer des blocs repliables.</p>
+            <p>Aisni que figure et figcaption pour les images et leurs légendes.</p>
+            <p>Et enfin, fieldset et legend pour les groupes de champs de formulaire.</p>
+
+            <h2>Les balises de head</h2>
+            <p>Les balises meta fournissent des métadonnées sur le document HTML, telles que la description, les mots-clés, et les paramètres de viewport.</p>
+            <div class="console">
+                <code>
+                    &lt;head&gt;  
+                     &nbsp;&nbsp;&lt;meta charset="UTF-8"&gt; 
+                     &nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; 
+                     &nbsp;&nbsp;&lt;meta name="description" content="Description de la page"&gt; 
+                    &lt;/head&gt;   
+
+                    <span class="console-marker">&lt;-- console --&gt;</span>
+                </code>
+            </div>
+            <p>Puis ensuite les attributs lang pour définir la langue du contenu (ex. <code>&lt;html lang="fr"&gt;</code>) et role pour améliorer l'accessibilité (ex. <code>role="navigation"</code>).</p>
+        </details>
+
+
+        
+        <details>
+         <summary>Les attributs HTML</summary>
+            <h2>Les attributs HTML</h2>
+            <p>Les attributs HTML sont des informations supplémentaires que l'on peut ajouter aux balises pour modifier leur comportement ou leur apparence.</p>
+            <p>Par exemple, l'attribut href dans la balise a spécifie l'URL de destination du lien, et l'attribut src dans la balise img spécifie le chemin de l'image à afficher.</p>
+            <p>Il existe de nombreux autres attributs HTML, tels que class, id, style, alt, title, target, et d'autres, chacun ayant une fonction spécifique.</p>
+            <p>Comme par exemple, l'attribut class permet de donner un nom à un élément pour pouvoir le cibler en CSS, et l'attribut id permet de donner un nom unique à un élément.</p>
+            <p>Ces noms pourront ensuite être utilisés dans les sélecteurs CSS et JavaScript (ou Python).</p>
+            <p>Il y a aussi les balises strong et em pour indiquer l'importance et l'emphase du texte.</p>
+        </details>
+    </div>
+
+
+
+
+
+
+
+        <!-- Contenu CSS -->
+        <div id="cssContent" class="HIDDEN" role="region" aria-labelledby="cssHeading">
+        <h1 id="cssHeading">CSS</h1>
+        <p>Dans cette partie, on verra d'abord comment associer CSS à l'HTML, puis on développera les notions importantes plus en détail.</p>
+    <details>
+        <summary>Les bases du CSS</summary>
+    <details>
+        <summary>Associer CSS à l'HTML</summary>
+        <h2>Associer CSS à l'HTML</h2>
+        <p>Pour associer une feuille de style CSS à un document HTML, on utilise la balise &lt;link&gt; dans la section &lt;head&gt; du document HTML.</p>
+
+        <div class="console">
+            <code>
+                &lt;head&gt; 
+                &nbsp;&nbsp;&lt;link rel="stylesheet" href="styles.css"&gt; 
+                &lt;/head&gt;  
+
+                <span class="console-marker">&lt;-- console --&gt;</span>
+                &lt;head&gt; 
+                &nbsp;&nbsp;&lt;link rel="stylesheet" href="styles.css"&gt; 
+                &lt;/head&gt;
+            </code>
+        </div>
+
+        <p>Dans cet exemple, l'attribut rel spécifie le type de relation entre le document HTML et la feuille de style. Ici, stylesheet indique une feuille de style.</p>
+        <p>L'attribut href indique le chemin vers le fichier CSS. Ici, il s'agit de styles.css</p>
+    </details> 
+
+    <details>
+        <summary>Les sélecteurs CSS</summary>
+        <h2>Les sélecteurs CSS</h2>
+        <p>Les sélecteurs CSS sont utilisés pour cibler des éléments HTML spécifiques afin d'appliquer des styles.</p>
+        <p>Il existe plusieurs types de sélecteurs : les sélecteurs de type, les sélecteurs de classe et les sélecteurs d'identifiant.</p>
+        <p>Chaque sélecteur est suivi d'un bloc de déclaration entre accolades <code>{}</code> où les propriétés CSS sont définies.</p>
+
+        <div id="console">
+            <p>Sélécteur de type:</p>
+            <code>
+                p { 
+                &nbsp;&nbsp;color: blue; 
+                }  
+            </code>
+             <P>Sélecteur de classe (.element):</P>
+            <code>
+                .highlight { 
+                &nbsp;&nbsp;background-color: yellow; 
+                }  
+            </code>
+            <p>Sélecteur d'identifiant (#element):</p>
+            <code>
+                #main-title { 
+                &nbsp;&nbsp;font-size: 24px; 
+                }  
+
+                &lt;-- console --&gt; 
+            </code>
+        </div>
+
+        <p>Dans ces exemples, on montre trois types de sélecteurs : le sélecteur de type, de classe et d'identifiant.</p>
+        <p>ils sont équipés de préfixes spécifiques pour les distinguer: {rien}, {.}, et {#}</p>
+    </details>
+    </details>
+    
+    <details>
+        <summary>Les propriétés CSS intermédiaires</summary>
+    <details>
+        <summary>Les propriétés CSS</summary>
+        <h2>Les propriétés CSS</h2>
+        <p>Les propriétés CSS sont utilisées pour définir les styles à appliquer aux éléments HTML sélectionnés.</p>
+
+        <div class="console">
+                <code>
+                    p { 
+                    &nbsp;&nbsp;color: red; 
+                    &nbsp;&nbsp;font-size: 16px; 
+                    &nbsp;&nbsp;margin: 10px; 
+                    }  
+
+                    <span class="console-marker">&lt;-- console --&gt;</span>
+            </code>
+        </div>
+
+        <p>Dans cet exemple, on applique trois propriétés CSS à tous les éléments &lt;p&gt; : color (couleur du texte), font-size (taille de la police) et margin (marge autour de l'élément).</p>
+        <p>Chaque propriété est suivie de deux-points ":" et de la valeur correspondante, puis d'un point-virgule ";" à la fin.</p>
+        <p>Il existe beaucoup d'autres propriétés, mais on les verra plus tard en détail.</p>
+        <p>Voici une liste de propriétés importantes :</p>
+
+        <div id="classes">
+            <ol>
+                <li><em>background-color</em> : définit la couleur de fond d'un élément.</li>
+                <li><em>border</em> : définit les bordures d'un élément.</li>
+                <li><em>border-radius</em> : arrondit les bords.</li>
+                <li><em>background-image</em> : définit une image de fond pour un élément.</li>
+                <li><em>background-position</em> : définit la position de l'image de fond.</li>
+                <li><em>background-repeat</em> : définit si et comment l'image de fond se répète.</li>
+                <li><em>box-shadow</em> : ajoute une ombre portée à un élément.</li>
+                <li><em>box-sizing</em> : définit comment la taille totale d'un élément est calculée, en incluant ou excluant les bordures et le padding.</li>
+                <li><em>clip-path</em> : permet de définir une zone de découpe pour un élément.</li>
+                <li><em>color</em> : définit la couleur du texte.</li>
+                <li><em>cursor</em> : permet de changer l'apparence du curseur de la souris lorsqu'il survole un élément.</li>
+                <li><em>display</em> : contrôle la façon dont un élément est affiché (block, inline, flex, grid, etc.).</li>
+                <li><em>filter</em> : applique des effets graphiques comme le flou ou la saturation à un élément.</li>
+                <li><em>flex</em> : propriété raccourcie pour les éléments flexibles.</li>
+                <li><em>flex-direction</em> : définit la direction principale des éléments flexibles.</li>
+                <li><em>grid</em> : propriété raccourcie pour les conteneurs grid.</li>
+                <li><em>grid-template-columns</em> : définit le nombre et la taille des colonnes d'une grille.</li>
+                <li><em>grid-template-rows</em> : définit le nombre et la taille des lignes d'une grille.</li>
+                <li><em>float</em> : permet de faire flotter un élément à gauche ou à droite.</li>
+                <li><em>font-family</em> : spécifie la police de caractères à utiliser pour le texte.</li>
+                <li><em>font-style</em> : permet de changer le style d'écriture, comme italic ou oblique.</li>
+                <li><em>font-weight</em> : permet de régler l'épaisseur du texte, allant de normal à bold ou à des valeurs numériques.</li>
+                <li><em>max-height</em> : définit la hauteur maximale d'un élément.</li>
+                <li><em>max-width</em> : définit la largeur maximale d'un élément.</li>
+                <li><em>min-height</em> : définit la hauteur minimale d'un élément.</li>
+                <li><em>min-width</em> : définit la largeur minimale d'un élément.</li>
+                <li><em>height</em> et <em>width</em> : définissent la hauteur et la largeur d'un élément.</li>
+                <li><em>letter-spacing</em> : permet de contrôler l'espacement entre les caractères du texte.</li>
+                <li><em>line-height</em> : permet de régler la hauteur de ligne du texte à l'intérieur d'un élément.</li>
+                <li><em>margin</em> : définit l'espace entre un élément et les éléments environnants.</li>
+                <li><em>opacity</em> : permet de régler la transparence d'un élément, allant de 0 à 1.</li>
+                <li><em>object-fit</em> : définit la façon dont le contenu d'un élément remplacé est redimensionné pour s'adapter à son conteneur.</li>
+                <li><em>outline</em> : définit une ligne autour d'un élément, en dehors de la bordure.</li>
+                <li><em>overflow-x</em> : contrôle le débordement horizontal du contenu.</li>
+                <li><em>overflow-y</em> : contrôle le débordement vertical du contenu.</li>
+                <li><em>overflow</em> : gère le comportement du contenu qui dépasse les dimensions d'un élément.</li>
+                <li><em>padding</em> : définit l'espace entre le contenu d'un élément et sa bordure.</li>
+                <li><em>position</em> : définit la méthode de positionnement d'un élément (static, relative, absolute, fixed).</li>
+                <li><em>pointer-events</em> : contrôle si un élément peut devenir la cible d'événements de la souris.</li>
+                <li><em>text-align</em> : définit l'alignement du texte à l'intérieur d'un élément (left, right, center, justify).</li>
+                <li><em>text-decoration</em> : permet d'ajouter des décorations au texte, comme le soulignement ou la ligne à travers.</li>
+                <li><em>text-shadow</em> : ajoute une ombre au texte.</li>
+                <li><em>user-select</em> : contrôle si l'utilisateur peut sélectionner le texte.</li>
+                <li><em>white-space</em> : contrôle la façon dont les espaces blancs sont gérés dans un élément.</li>
+                <li><em>word-break</em> : contrôle la façon dont les mots sont coupés à la fin d'une ligne.</li>
+                <li><em>transform</em> : permet d'appliquer des transformations 2D ou 3D à un élément, comme la rotation, l'échelle ou la translation.</li>
+                <li><em>transition</em> : permet de créer des effets de transition en douceur entre les états d'un élément lorsqu'une propriété change.</li>
+                <li><em>visibility</em> : permet de contrôler la visibilité d'un élément, en le rendant visible, caché ou occupé de l'espace sans être visible.</li>
+                <li><em>z-index</em> : permet de gérer la superposition des éléments positionnés, en définissant leur ordre d'empilement.</li>
+            </ol>
+        </div> 
+        </details> 
+
+        <details>
+            <summary>Display</summary>
+            <h2>Flexbox</h2>
+            <p>Voici un exemple d'utilisation de Flexbox pour créer une mise en page flexible.</p>
+
+            <div id="console">
+                <code>
+                    .container { 
+                    &nbsp;&nbsp;display: flex; (flex; grid; inline; block; inline-block) 
+                    &nbsp;&nbsp;flex-wrap: nowrap; (wrap; nowrap; wrap-reverse) 
+                    &nbsp;&nbsp;flex-grow: 0; (basic value) 
+                    &nbsp;&nbsp;flex-shrink: 1; (basic value) 
+                    &nbsp;&nbsp;flex-basis: auto; (basic value) 
+                    &nbsp;&nbsp;flex: 0 1 auto; (flex shorthand) 
+                    &nbsp;&nbsp;flex-direction: row; (row; row-reverse; column; column-reverse) 
+                    &nbsp;&nbsp;cross-axis: stretch; 
+                    &nbsp;&nbsp;align-items: stretch; (par défaut stretch; center; start; end) 
+                    &nbsp;&nbsp;justify-content: space-around; 
+                    } 
+                </code>
+            </div>
+            <h2>Grid</h2>
+            <p>Voici un exemple d'utilisation de CSS Grid pour créer une mise en page en grille.</p>
+
+            <div id="console">
+                <code>
+                    .container { 
+                    &nbsp;&nbsp;display: grid; 
+                    &nbsp;&nbsp;grid-template-columns: repeat(3, 1fr); (permet de définir la largeur des colonnes de la grille) 
+                    &nbsp;&nbsp;grid-template-rows: auto; 
+                    &nbsp;&nbsp;gap: 10px; (permet de définir l'espace entre les éléments de la grille) 
+                    &nbsp;&nbsp;grid-template-areas: 
+                    &nbsp;&nbsp;"header header header" 
+                    &nbsp;&nbsp;"sidebar content content" 
+                    &nbsp;&nbsp;"footer footer footer"; (définit les zones de la grille) 
+                    &nbsp;&nbsp;grid-area: header; (permet de placer un élément dans une zone spécifique de la grille) 
+                    &nbsp;&nbsp;align-items: center; (start, center, end, stretch : permet d'aligner les éléments verticalement au centre de leur cellule) 
+                    &nbsp;&nbsp;justify-items: center; (start, center, end, stretch : permet d'aligner les éléments horizontalement au centre de leur cellule) 
+                    &nbsp;&nbsp;justify-content: center; (permet d'aligner la grille elle-même au centre de son conteneur) 
+                    &nbsp;&nbsp;grid: auto / auto; (permet de définir la taille des lignes et des colonnes de la grille) 
+                    } 
+                </code>
+            </div>
+        </details> 
+
+    <details>
+        <summary>Commentaires</summary>
+        <h2>Commentaires</h2>
+        <p>Les commentaires en CSS sont utilisés pour ajouter des notes ou des explications dans le code CSS sans affecter son fonctionnement.</p>
+
+        <div id="console">
+            <code>
+                /* Ceci est un commentaire en CSS */ 
+                p { 
+                &nbsp;&nbsp;color: blue; /* Couleur du texte */ 
+                }  
+
+                &lt;-- console --&gt; 
+            </code>
+        </div>
+
+        <p>Dans cet exemple, on montre comment écrire des commentaires en CSS en utilisant la syntaxe <code>/* commentaire */</code>.</p>
+        <p>Les commentaires peuvent être placés n'importe où dans le code CSS et sont ignorés par le navigateur lors de l'interprétation du style.</p>
+        <p>Il en existe aussi en HTML, JavaScript et Python :</p>
+        <ul>
+            <li>HTML : <code>&lt;!-- Ceci est un commentaire en HTML --&gt;</code></li>
+            <li>JavaScript : <code>// Ceci est un commentaire sur une ligne</code></li>
+            <li>JavaScript : <code>/* Ceci est un commentaire sur plusieurs lignes */</code></li>
+            <li>Python : <code># Ceci est un commentaire en Python</code></li>
+        </ul>
+    </details>
+    </details>
+            </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- Contenu JavaScript-->
+        <div id="jsContent" class="HIDDEN" role="region" aria-labelledby="jsHeading">
+            <h1 id="jsHeading">JavaScript</h1>
+            <p>Le Javascript est essentiel pour rendre une page web interactive. Il permet de manipuler le DOM (Document Object Model) pour modifier le contenu, la structure et le style d'une page web en temps réel.</p>
+            <details>
+                <summary>Variables en JavaScript</summary>
+                <p>En JavaScript, les variables sont utilisées pour stocker des données et des valeurs. Il existe trois mots-clés principaux pour déclarer des variables : var, let et const.</p>
+                <div id="console">
+                    <code>
+                        var nom = "Alice"; 
+                        let age = 30; 
+                        const isStudent = true;  
+
+                        &lt;-- console--&gt; 
+                    </code>
+                </div>
+             <p>let est une variable dont la valeur peut être modifiée après son initialisation. Ce qui n'est pas le cas de const. Cependant var est la seule à permettre la redéclaration d'une variable, tandis que let et const ne le permettent pas.</p>
+             <p>La valeur de la variable est sois une chaîne de caractères, un nombre, un booléen, un tableau ou un objet.</p>
+             <p>Voici quelques exemples:</p>
+             <div id="console">
+                    <code>
+                        let nom = "Alice"; 
+                        let age = 30; 
+                        let isStudent = true; 
+                        let fruits = ["apple", "banana", "orange"]; 
+                        let person = { name: "Alice", age: 30, speak() {console.log("Hi !");}} 
+                        console.log(nom, age, isStudent, fruits[0], person.name);  
+
+                        &lt;-- console--&gt; 
+                        > Alice 30 true apple Alice 
+                    </code>
+                </div>
+             <p>Les variables peuvent également être destructurés et devenir des fonctions fléchées:</p>
+             <div id="console">
+                    <code>
+                        let nom = ["Alice", "Bob", "Charlie"]; 
+                        let [name1, name2, name3] = nom; 
+                        console.log(name1 + ", " + name2 + ", " + name3);  
+
+                        &lt;-- console--&gt; 
+                        > Alice, Bob, Charlie 
+                    </code>
+                    <p>On utilise "," pour ignorer des éléments du tableau et "..." + name pour capturer les éléments restants dans un tableau. la destructuration fonctionne aussi avec les objets.</p>
+                    <p>const [, name2, ...rest] = nom;</p>
+                </div>
+             <p>Ensuite les fonctions fléchées qui agissent comme des fonctions anonymes:</p>
+             <div id="console">
+                    <code>
+                        const add = (a, b) => a + b; 
+                        console.log(add(5, 3));  
+
+                        &lt;-- console--&gt; 
+                        > 8 
+                    </code>
+                </div>
+             <p>Elles permettent de créer des fonctions plus concises et lisibles.</p>
+             <p>Attention, les fonctions fléchés ne retournent pas toujours this. Si elles contiennent { } pour faire plusieurs lignes, il faudra utiliser le mot-clé return.</p>
+             <div id="console">
+                    <code>
+                        function square(x) { 
+                            return x * x; 
+                        } 
+                        console.log(square(5));  
+
+                        &lt;-- console--&gt; 
+                        > 25 
+                    </code>
+                </div>
+             <p>Un autre outil utile est le Template Literals, utilisant les backticks (`)</p>
+             <div id="console">
+                    <code>
+                        let name = "Alice"; 
+                        let greeting = `Hello, ${name}!`; 
+                        console.log(greeting);  
+
+                        &lt;-- console--&gt; 
+                        > Hello, Alice! 
+                    </code>
+                </div>
+            </details> 
+            <details>
+                <summary>Tableaux, objets, boucles et DOM.</summary> 
+                <details>
+                    <summary>Tableaux</summary>
+                    <p>Les tableaux sont des structures de données qui permettent de stocker plusieurs valeurs dans une seule variable. En JavaScript, les tableaux sont créés en utilisant des crochets [] et peuvent contenir des éléments de différents types.</p>
+                    <div id="console">
+                        <code>
+                            let fruits = ["apple", "banana", "orange"]; 
+                            console.log(fruits[0]); <p>// Accéder au premier élément</p> 
+                            console.log(fruits.length); <p>// Obtenir la longueur du tableau</p>  
+
+                            &lt;-- console--&gt; 
+                            > apple 
+                            > 3 
+                        </code>
+                    </div>
+                    <p>La manipulation des tableaux est une compétence essentielle en JavaScript. Voici quelques méthodes couramment utilisées:</p>
+                    <div id="console">
+                        <code>
+                           <p>Tout d'abord, on peut accéder à un élément spécifique du tableau en utilisant son index:</p>
+                            let fruits = ["apple", "banana", "orange"]; 
+                            console.log(fruits[1]); <p>// Accéder au deuxième élément</p>  
+
+                            &lt;-- console--&gt; 
+                            > banana  
+
+                            <p>Ensuite, on peut ajouter un élément à la fin du tableau avec la méthode push:</p>
+                            fruits.push("grape"); 
+                            console.log(fruits);  
+
+                            &lt;-- console--&gt; 
+                            > ["apple", "banana", "orange", "grape"]  
+
+                            <p>On peut également supprimer le dernier élément du tableau avec la méthode pop:</p>
+                            fruits.pop(); 
+                            console.log(fruits);  
+
+                            &lt;-- console--&gt; 
+                            > ["apple", "banana", "orange"]  
+
+                            <p>Pour trier les éléments du tableau, on utilise la méthode sort:</p>
+                            fruits.sort(); 
+                            console.log(fruits);  
+
+                            &lt;-- console--&gt; 
+                            > ["apple", "banana", "orange"] 
+
+                            <p>Voyons plus frofondement ce qui est possible avec les tableaux: Utilisons les outils .filter, .map, et .reduce dans des exemples concrets.</p>
+
+                            fruits.map(function(element, index) { return element.toUpperCase(); }); 
+                            
+                            <p>.map permet de créer un nouveau tableau en appliquant une fonction à chaque élément du tableau d'origine.</p>
+
+                            fruits.filter(function(x) { return x.length > 5; }); 
+                            <p>.filter permet de créer un nouveau tableau contenant uniquement les éléments qui satisfont une condition spécifiée.</p>
+
+                            fruits.reduce(function(accumulator, element) { return accumulator + element.length; }, 0); 
+                            <p>.reduce permet de réduire le tableau à une seule valeur en appliquant une fonction d'accumulation à chaque élément du tableau.</p>
+                        </code>
+                    </div>
+                    <p>La Structure des Tableaux:</p>
+                    <p>On va voir plus visiblement comment coder des .map, .filter et .reduce. tout ça paraît complexe au départ, mais avec un peu de pratique, vous maîtriserez ces outils puissants.</p>
+
+                    <div id="console">
+                        <code>
+                            let numbers = [1, 2, 3, 4, 5]; 
+                            console.log(numbers);  
+
+                            &lt;-- console--&gt;  
+                            > [1, 2, 3, 4, 5] 
+
+                            <p>Pour l'exemple, nous utiliserons uniquement .map, mais .filter et .reduce ont exactement les mêmes principes.</p>
+                            <p>Tout d'abord, rappelons le tableau. Puis ajoutons lui .map</p>
+                            numbers.map()
+                            <p>Ce .map est vide, ajoutons lui une fonction.</p>
+                            numbers.map(function() {})
+                            <p> Ici on a ajouté la fonction .map avec les crochets pour ce qu'elle va exécuter. La fonction s'exécute sur chaque élément du tableau au rendu. 
+                            La fonction prend deux paramètres: element et index. Element est l'élément du tableau sur lequel la fonction s'exécute, et index est l'index de cet élément dans le tableau. 
+                            C'est à dire que Element est la valeur de l'élément, et index est sa position dans le tableau. 
+                            Par exemple, si on a un tableau [10, 20, 30], element 10 aura Element = 10 et index = 0 .
+                            </p>
+                            console.log( numbers.map(function(element, index) { return element * index; }) );
+                            <p>Chaques éléments du tableau sont multipliés par leur index, la valeur est renvoyée dans la console.</p>
+                        </code>
+                    </div>
+                </details> 
+                <details>
+                    <summary>Json & Fonctions</summary>
+                    <p>Json est un format de données léger utilisé pour échanger des données entre un client et un serveur. Les fonctions peuvent être ajoutées à un objet JSON pour lui donner des comportements spécifiques.</p>
+                    <p>Pour transformer un objet en JSON, on utilise JSON.stringify(). Pour transformer un JSON en objet, on utilise JSON.parse().</p>
+                    <p>C'est très simple à utiliser.</p>
+                    
+                    <p>Ensuite, les fonctions sont des parties du code éxécuté uniquement quand on les appelle. Avec eux arrivent les callbacks, et bien d'autres choses.</p>
+                    <div id="console">
+                        <code>
+                            <p>Nous voulons crier "Alice !" dans la console. Pour cela, on écrit le mot clé function, ensuite le nom de la fonction avec des paranthèses et ses arguments, 
+                            Et enfin les accolades pour le code à éxécuter. On y mettras le console.log("Alice !") 
+                            </p>
+                            function shout(name) { 
+                            &nbsp;&nbsp; console.log(name + "!"); 
+                            } 
+                            <p>On peux faire des appels à cette fonction en passant un nom en argument. On peux aussi retourner la valeur de la fonction avec le mot clé return.</p>
+                            function shout(name) { 
+                            &nbsp;&nbsp; return name + "!"; 
+                            } 
+                            console.log(shout("Alice")); 
+                        </code>
+                    </div>
+                    <p>Il est temps de lister les points qu'on a pas encore abordés:</p>
+                            <ul>
+                                <li>Les fonctions fléchées</li>
+                                <li>Les fonctions anonymes</li>
+                                <li>Les fonctions récursives</li>
+                                <li>Les fonctions de rappel (callbacks)</li>
+                                <li>Les fonctions asynchrones et les promesses</li>
+                            </ul>
+                    <div id="console">
+                        <code>
+                            <p>Les fonctions fléchées sont une syntaxe plus concise pour déclarer des fonctions, on les a déjà vues plus haut.</p>
+                            <p>Les fonctions anonymes sont des fonctions sans nom, souvent utilisées comme arguments pour d'autres fonctions:</p>
+                            
+                            <p>Exemple de fonction anonyme passée à un appel:</p>
+                            const numbers = [1, 2, 3]; 
+                            numbers.forEach(function(number) { 
+                            &nbsp;&nbsp; console.log(number); 
+                            }); 
+                            
+                            <p>Les fonctions récursives s'appellent elles-mêmes pour résoudre un problème étape par étape:</p>
+                            function factorial(n) { 
+                            &nbsp;&nbsp; if (n <= 1) return 1; 
+                            &nbsp;&nbsp; return n * factorial(n - 1); 
+                            } 
+                            console.log(factorial(5)); // 120 
+                            
+                            <p>Les fonctions de rappel (callbacks) sont des fonctions que l'on donne à une autre fonction pour qu'elle soit appelée plus tard:</p>
+                            function doAfterDelay(callback) { 
+                            &nbsp;&nbsp; setTimeout(callback, 1000); 
+                            } 
+                            doAfterDelay(function() { 
+                            &nbsp;&nbsp; console.log('Callback appelé après 1 seconde'); 
+                            }); 
+                            
+                            <p>Les fonctions asynchrones et les promesses permettent de gérer des opérations qui prennent du temps, comme des requêtes réseau:</p>
+                            const p = new Promise((resolve, reject) => { 
+                            &nbsp;&nbsp; setTimeout(() => resolve('Succès'), 500); 
+                            }); 
+                            p.then(result => console.log(result)) 
+                            &nbsp;&nbsp; .catch(err => console.error(err)); 
+                            
+                            <p>Avec async/await, on écrit ce code de manière plus lisible :</p>
+                            async function getData() { 
+                            &nbsp;&nbsp; try { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; const result = await p; 
+                            &nbsp;&nbsp;&nbsp;&nbsp; console.log(result); 
+                            &nbsp;&nbsp; } catch (err) { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; console.error('Erreur:', err); 
+                            &nbsp;&nbsp; } 
+                            } 
+                            getData(); 
+                        </code>
+                </details> 
+                <details>
+                    <summary>Boucles & Manipulation du DOM</summary>
+                    <p>Il existe 3 boucles en JavaScript: for, while, et do...while</p>
+                    <p>while est une boucle qui s'exécute tant qu'une condition est vraie.</p>
+                    <p>for est une boucle qui s'exécute un nombre spécifique de fois en utilisant sa propre variable d'initialisation, de condition et d'incrémentation.</p>
+                    <p>do...while est une boucle qui s'exécute au moins une fois, puis continue tant qu'une condition est vraie.</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple de boucle for:</p>
+                            for (let i = 0; i < 5; i++) { 
+                            &nbsp;&nbsp; console.log("Itération " + i); 
+                            }  
+
+                            <p>Exemple de boucle while:</p>
+                            let j = 0; 
+                            while (j < 5) { 
+                            &nbsp;&nbsp; console.log("Itération " + j); 
+                            &nbsp;&nbsp; j++; 
+                            }  
+
+                            <p>Exemple de boucle do...while:</p>
+                            let k = 0; 
+                            do { 
+                            &nbsp;&nbsp; console.log("Itération " + k); 
+                            &nbsp;&nbsp; k++; 
+                            } while (k < 5);  
+
+                        </code>
+                    </div>
+                    <p>La manipulation du DOM en JavaScript permet de modifier dynamiquement le contenu et la structure d'une page web.</p>
+                    <p>Il n'est cependant pas essentiel de manipuler le DOM avec ces méthodes. En général, on utilise des bibliothèques ou des frameworks pour simplifier cette manipulation comme le React.</p>
+                    <p>Ici nous verrons les manipulations simples du DOM. Plus tard nous aborderons des techniques plus avancées: Le React.</p>
+                    <p>Tout d'abord, il est important de comprendre comment accéder aux éléments du DOM. 
+                    Pour cela, on utilise des méthodes comme getElementById, getElementsByClassName, querySelector et querySelectorAll. 
+                    Ces méthodes permettent de sélectionner des éléments spécifiques dans le document HTML en fonction de leur identifiant, de leur classe ou de leur sélecteur CSS. 
+                    En utilisant ces méthodes, on peut ensuite modifier le contenu, les attributs et les styles des éléments sélectionnés. 
+                    C'est parti pour voir comment manipuler le DOM en JavaScript !
+                    </p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple d'accès à un élément du DOM:</p>
+                            const element = document.getElementById("monElement"); 
+                            console.log(element);  
+
+                            <p>Exemple de modification du contenu d'un élément:</p>
+                            element.textContent = "Nouveau contenu"; 
+                            console.log(element.textContent);  
+
+                            <p>Exemple de gestion des classes d'un élément:</p>
+                            element.classList.add("maClasse"); 
+                            element.classList.remove("maClasse"); 
+                            element.classList.toggle("maClasse"); 
+                            element.classList.replace("ancienneClasse", "nouvelleClasse"); 
+                            const present = element.classList.contains("maClasse"); 
+                            console.log(present);  
+
+                            <p>Exemple de création et suppression d'un élément:</p>
+                            const nouveau = document.createElement("p"); 
+                            nouveau.textContent = "Ceci est un nouveau paragraphe."; 
+                            document.body.appendChild(nouveau); 
+                            nouveau.remove(); 
+                        </code>
+                    </div>
+                </details>
+            </details> 
+            <details> 
+                <summary>Événements en JavaScript</summary>
+                <details>
+                    <summary>Introduction aux événements</summary>
+                    <p>Les événements en JavaScript sont des actions ou des occurrences qui se produisent dans le navigateur (clics, double-clics, défilement, saisie, gestes tactiles, etc.). 
+                    On peut y répondre en attachant des gestionnaires (handlers) ou des écouteurs (event listeners).</p>
+                    <p>Voyons comment les utiliser dans notre code:</p>
+                    <div id="console">
+                        <pre><code>
+                            <p>Exemple d'écouteur d'événement:</p>
+                            const button = document.querySelector("button"); 
+                            button.addEventListener("click", function() { 
+                            &nbsp;&nbsp; console.log("Bouton cliqué !"); 
+                            });  
+
+                            <p>Exemple de gestionnaire d'événement:</p>
+                            button.onclick = function() { 
+                            &nbsp;&nbsp; console.log("Bouton cliqué !"); 
+                            };  
+
+                        </code></pre>
+                    </div>
+                    <p>Sur ces deux approches, l'approche avec `addEventListener` est généralement préférée car elle offre plus de flexibilité et de contrôle.</p>
+                    <p>Il existe plusieurs types d'événements, comme `click`, `mouseover`, `keydown`, etc. Voici la liste complète:</p>
+                    <ul>
+                        <li>`click` - Clic sur un élément</li>
+                        <li>`dblclick` - Double-clic sur un élément</li>
+                        <li>`mouseover` - survol d'un élément</li>
+                        <li>`keydown` - touche pressée</li>
+                        <li>`keyup` - touche relâchée</li>
+                        <li>`focus` - élément reçoit le focus</li>
+                        <li>`blur` - élément perd le focus</li>
+                        <li>`submit` - formulaire soumis</li>
+                        <li>`change` - valeur d'un élément modifiée</li>
+                        <li>`input` - saisie dans un champ de texte</li>
+                        <li>`scroll` - défilement d'un élément</li>
+                        <li>`resize` - redimensionnement de la fenêtre</li>
+                        <li>`touchstart` - début d'un geste tactile</li>
+                        <li>`touchmove` - mouvement d'un geste tactile</li>
+                        <li>`touchend` - fin d'un geste tactile</li>
+                        <li>`touchcancel` - annulation d'un geste tactile</li>
+                    </ul>
+                    <div id="console">
+                        <pre><code>
+                            <p>Apprendre à utiliser les événements en JavaScript. On va faire un bouton qui affiche un message dans la console quand on clique dessus.</p>
+                            <P>Tout d'abord, on sélectionne le bouton :</P>
+                            const button = document.querySelector("button"); 
+                            <p>Ensuite, on ajoute un écouteur d'événement pour le clic :</p>
+                            button.addEventListener("click", greetings) 
+                            <p>Enfin, on définit la fonction qui sera appelée lors du clic :</p>
+                            function greetings() { 
+                            &nbsp;&nbsp; console.log("Hello World!"); 
+                            } 
+                        </code></pre>
+                    </div>
+                    <p>Il existe aussi RemoveEventListener pour retirer un écouteur d'événement :</p>
+                    <div id="console" class="HIDDEN">
+                        <code>
+                            button.removeEventListener("click", greetings); 
+                        </code>
+                    </div>
+                </details>
+                <details>
+                    <summary>Classes JavaScript</summary>
+                       <p>Les classes en JavaScript sont un moyen de créer des objets réutilisables avec des propriétés et des méthodes.</p>
+                       <p>Voici un exemple de classe simple :</p>
+                       <div id="console">
+                        <pre><code>
+                            class Person { 
+                            &nbsp;&nbsp; constructor(name, age) { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; this.name = name; 
+                            &nbsp;&nbsp;&nbsp;&nbsp; this.age = age; 
+                            &nbsp;&nbsp; } 
+                            &nbsp;&nbsp; greet() { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`); 
+                            &nbsp;&nbsp; } 
+                            }  
+
+                            const alice = new Person("Alice", 30); 
+                            alice.greet();  
+
+                            &lt;-- console--&gt; 
+                            > Hello, my name is Alice and I am 30 years old. 
+                        </code></pre>
+                       </div>
+                       <p>Tout semble difficile à comprendre pour le moment. Voyons cela ensemble.</p>
+                       <p>Voyons pas à pas comment marche les classes puis nous verons ensuite les héritages.</p>
+                       <div id="console">
+                        <pre><code>
+                            <p>Tout d'abord, on crée une classe avec le mot clé class suivi du nom de la classe :</p>
+                            class Person {} 
+                            <p>Ensuite, on définit un constructeur qui est appelé lors de la création d'une instance de la classe. Il aura ici deux paramètres :</p>
+                            class Person { 
+                            &nbsp;&nbsp; constructor(name, age) {}} 
+                            <p>Dans le constructeur, on peut initialiser les propriétés de l'objet avec this :</p>
+                            class Person { 
+                            &nbsp;&nbsp; constructor(name, age) { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; this.name = name; 
+                            &nbsp;&nbsp;&nbsp;&nbsp; this.age = age; 
+                            &nbsp;&nbsp; }} 
+                            <p>Ensuite, on peut définir des méthodes pour interagir avec les instances de la classe :</p>
+                            class Person { 
+                            &nbsp;&nbsp; constructor(name, age) { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; this.name = name; 
+                            &nbsp;&nbsp;&nbsp;&nbsp; this.age = age; 
+                            &nbsp;&nbsp; } 
+                            &nbsp;&nbsp; greet() { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`); 
+                            &nbsp;&nbsp; } 
+                            }  
+
+                            <p>Et enfin, on crée une instance de la classe avec le mot clé new :</p>
+                            const alice = new Person("Alice", 30); 
+                            alice.greet();  
+
+                            &lt;-- console--&gt; 
+                            > Hello, my name is Alice and I am 30 years old. 
+                        </code></pre>
+                       </div>
+                </details>
+                <details>
+                    <summary>Héritage en JavaScript</summary>
+                    <p>L'héritage en JavaScript permet à une classe d'hériter des propriétés et des méthodes d'une autre classe. Cela favorise la réutilisation du code et la création de hiérarchies d'objets.</p>
+                    <p>Voici un exemple d'héritage simple :</p>
+                    <div id="console">
+                        <pre><code>
+                            class Animal { 
+                            &nbsp;&nbsp; constructor(name) { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; this.name = name; 
+                            &nbsp;&nbsp; } 
+                            &nbsp;&nbsp; speak() { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; console.log(`${this.name} makes a sound.`); 
+                            &nbsp;&nbsp; } 
+                            }  
+
+                            class Dog extends Animal { 
+                            &nbsp;&nbsp; speak() { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; console.log(`${this.name} barks.`); 
+                            &nbsp;&nbsp; } 
+                            }  
+
+                            const dog = new Dog("Rex"); 
+                            dog.speak();  
+
+                            &lt;-- console--&gt; 
+                            > Rex barks. 
+                        </code></pre>
+                    </div>
+                    <p>Dans cet exemple, la classe Dog hérite de la classe Animal. La méthode speak() est redéfinie dans la classe Dog pour fournir un comportement spécifique.</p>
+                    <p>On peut aussi utiliser le mot clé super pour appeler le constructeur de la classe parente :</p>
+                    <div id="console">
+                        <pre><code>
+                            class Dog extends Animal { 
+                            &nbsp;&nbsp; constructor(name, breed) { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; super(name); 
+                            &nbsp;&nbsp;&nbsp;&nbsp; this.breed = breed; 
+                            &nbsp;&nbsp; } 
+                            &nbsp;&nbsp; speak() { 
+                            &nbsp;&nbsp;&nbsp;&nbsp; console.log(`${this.name} the ${this.breed} barks.`); 
+                            &nbsp;&nbsp; } 
+                            }  
+
+                            const dog = new Dog("Rex", "Labrador"); 
+                            dog.speak();  
+
+                            &lt;-- console--&gt; 
+                            > Rex the Labrador barks. 
+                        </code></pre>
+                    </div>
+                    <p>Dans cet exemple, la classe Dog hérite de la classe Animal. La méthode speak() est redéfinie dans la classe Dog pour fournir un comportement spécifique.</p>
+                    <p>On peut aussi utiliser le mot clé super pour appeler le constructeur de la classe parente :</p>
+                </details>
+            </details> 
+            <details>
+                    <summary>Asynchrone</summary>
+                    <p>Le code Asynchrone et Sychrone est quelque chose de spécial dont a vaguement parler auparavant.</p>
+                    <p>Le code synchrone s'exécute ligne par ligne, tandis que le code asynchrone permet à certaines opérations (comme les requêtes réseau ou les timers) de s'exécuter plus tard, sans bloquer le fil principal.</p>
+                    <p>On avait déjà vu les fonctions asynchrones, et maitenant nous allons découvrir d'autres concepts asynchrones.</p>
+                    <div id="console" class="HIDDEN">
+                        <code>
+                            <p>Exemple de code synchrone :</p>
+                            console.log("Début"); 
+                            console.log("Fin");  
+
+                            &lt;-- console--&gt; 
+                            > Début 
+                            > Fin  
+
+                            <p>Exemple de code asynchrone avec setTimeout :</p>
+                            console.log("Début"); 
+                            setTimeout(function() { 
+                            &nbsp;&nbsp; console.log("Asynchrone"); 
+                            }, 1000); 
+                            console.log("Fin");  
+
+                            &lt;-- console--&gt; 
+                            > Début 
+                            > Fin 
+                            > Asynchrone (après 1 seconde)  
+                        </code>
+                    </div>
+                    <p>Deux concepts asynchrones importants sont SetTimeout et SetInterval.</p>
+                    <p>SetTimeout permet d'exécuter une fonction après un certain délai (en millisecondes). 
+                        SetInterval permet d'exécuter une fonction de manière répétée à intervalles réguliers. 
+                        ClearInterval permet d'arrêter un intervalle. C'est secondaire mais utilise pour la gestion des performances.</p>
+                    <p>Le reste des concepts asynchrones ont été abordés dans les sections précédentes.</p>
+            </details> 
+        </div>
+
+
+
+
+
+        <!-- Contenu JS Avancé-->
+        <div id="jsComplexContent" class="JS HIDDEN" role="region" aria-labelledby="jsComplexHeading">
+            <h1 id="jsComplexHeading">Front-End / Back-End</h1>
+            <details>
+                <summary>React</summary>
+                <p>Le réact est une bibliothèque JavaScript pour construire des interfaces utilisateur.</p>
+                <p>Celui-ci permet de créer des applications web interactives de manière efficace en utilisant le JSX.</p>
+                <p>Nous allons découvrir les concepts de base de React dans cette section.</p>
+
+                <details>
+                    <summary>Fichiers</summary>
+                    <p>Tout d'abord, créons un fichier `index.html`, ensuite un fichier `app.jsx` et un fichier `style.css`.</p>
+                    <p>Comme ont le fait d'abord, on relie les fichiers dans le fichier `index.html`.</p>
+                    <p>Relier le fichier `app.jsx` a une manière différente que de relier des simples fichiers JavaScript:</p>
+                    <div id="console">
+                        <code>
+                            &lt;script type="text/babel" src="app.jsx"&gt;&lt;/script&gt;
+                        </code>
+                    </div>
+                    <p>En fait, il est aussi possible de relier d'autres fichiers JSX dans un fichier JSX.</p>
+                    <p>Dans le fichier `app.jsx`, on peut importer d'autres composants JSX:</p>
+                    <div id="console">
+                        <code>
+                            import React from 'react';
+                            import app2 from './app2.jsx';
+                        </code>
+                    </div>
+                    <p>Dans ce cas, le composant `app2` peut être utilisé dans le composant `app.jsx`. <br>
+                    Nous devons aussi importer React ;-</p>
+                    <p>Passons au grandes choses...</p>
+                </details>
+
+                <details>
+                    <summary>JSX</summary>
+                    <p>Le JSX est une syntaxe qui permet d'écrire du HTML dans du JavaScript. Il est utilisé dans React pour définir la structure des composants.</p>
+                    <p>Voici un exemple simple de composant React utilisant JSX :</p>
+                    <div id="console">
+                        <code>
+                            function App() {
+                            &nbsp;&nbsp; return (
+                            &nbsp;&nbsp;&nbsp;&lt;div&gt;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Bonjour, monde !&lt;/h1&gt;
+                            &nbsp;&nbsp;&nbsp;&lt;/div&gt;
+                            &nbsp;&nbsp; );
+                            }
+                        </code>
+                    </div>
+                    <p>Point important: nous ne pouvons retourner qu'un seul élément racine. Nous pouvons aussi retourner <></> qui n'est pas un élément HTML valide.</p>
+                    <p>En fait <></> est une syntaxe valide en JSX. C'est ce qu'on appelle un "fragment". C'est une abréviation pour "React Fragment".</p>
+                    <p>parlons maintenant de la gestion des états dans React et des props:</p>
+                    <div id="console">
+                        <code>
+                            import React, { useState } from 'react';
+
+                            function Counter() {
+                            &nbsp;&nbsp; const [count, setCount] = useState(0);
+
+                            &nbsp;&nbsp; return (
+                            &nbsp;&nbsp;&nbsp;&lt;div&gt;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Vous avez cliqué {count} fois&lt;/p&gt;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+                                &nbsp;&nbsp;&nbsp;&nbsp;Cliquez ici
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/button&gt;
+                            &nbsp;&nbsp;&nbsp;&lt;/div&gt;
+                            &nbsp;&nbsp; );
+                            }
+                        </code>
+                    </div>
+                    <p>Ici on importe `useState` depuis React pour gérer l'état du composant. Il permet de sauvegarder et mettre à jour la valeur d'une variable dans un composant React en temps réel.</p>
+                    <p>Ensuite on crée une variable d'état avec `useState`, avec valeur par défaut de 0.</p>
+                    <p>Dans le rendu, on utilise `count` pour afficher la valeur de l'état et `setCount` pour mettre à jour cette valeur.</p>
+                    <p>Ici on n'as que utilise la variable d'état, mais pas encore les props. Voici un exemple de composant utilisant les props :</p>
+                    <div id="console">
+                        <code>
+                            <p>Dans le fichier parent app.jsx</p>
+                            import React from 'react';
+                            import { CreateRoot } from 'react-dom/client';
+                            import Greeting from './greeting.jsx'; <br>
+                            const rootElement = document.getElementById('root');
+                            const root = CreateRoot(rootElement);
+                            root.render(&lt;Greeting name="Alice" /&gt;);
+
+                            <p>Dans le fichier enfant greeting.jsx</p>
+                            function Greeting(props) {
+                            &nbsp;&nbsp; return &lt;h1&gt;Bonjour, {props.name} !&lt;/h1&gt;;
+                            }
+                            export default Greeting;
+
+                            &lt;--console--&gt;
+                            > Bonjour, Alice !
+                        </code>
+                    </div>
+                    <p>Dans cet exemple, le composant `Greeting` reçoit une prop `name` et l'utilise pour afficher un message personnalisé. Le composant `App` passe la valeur "Alice" à la prop `name` du composant `Greeting`.</p>
+                    <p>Les props permettent de passer des données d'un composant parent à un composant enfant, ce qui rend les composants plus réutilisables et flexibles.</p>
+                    <p>Ce qu'il faut retenir, c'est que les props sont une manière de faire communiquer les composants entre eux. Cependant la communication demande d'utiliser le root, ce qui est long.</p>
+                    <p>export est utilisé pour rendre un composant accessible depuis d'autres fichiers.</p>
+                    <p>import est utilisé pour importer des composants ou des fonctions depuis d'autres fichiers. écrire {} dans l'import permet de spécifier les éléments à importer.</p>
+                    <p>Toutes expressions intégrées doivent être encloses dans des accolades {}.</p> <br>
+                    <p>Point intéréssant, pour appliquer des styles CSS à un composant React, on peux importer un fichier CSS dans le composant:</p>
+                    <div id="console">
+                        <code>
+                            import React from 'react';
+                            import './style.css';
+
+                            function App() {
+                            &nbsp;&nbsp; return (
+                                &lt;h1 className="greeting"&gt;Bonjour, Alice !&lt;/h1&gt;
+                            );
+                            }
+                            export default App;
+                        </code>
+                    </div>
+                    <p>On peux alors aussi utiliser la propriété `style`, cependant elle n'attend pas une chaîne de caractères mais un objet JavaScript.</p>
+                </details>
+                <details>
+                    <summary>useEffect, Router et abréviations</summary>
+                    <details>
+                        <summary>Abréviations et useEffect</summary>
+                        <p>Des abréviations sont souvent utilisées dans React pour simplifier le code. Par exemple, faire un if else peut être simplifié en utilisant l'opérateur ternaire:</p>
+                        <div id="console">
+                            <code>
+                                <p>Exemple d'utilisation de l'opérateur ternaire :</p>
+                                const isLoggedIn = true; 
+                                const message = isLoggedIn ? "Bienvenue !" : "Veuillez vous connecter."; 
+                                console.log(message);
+                            </code>
+                        </div>
+                        <p>Il existe également d'autres abréviations couramment utilisées dans React, comme le et "&&" et ou "||":</p>
+                        <p>Le hook `useEffect` est utilisé pour gérer les effets secondaires dans les composants fonctionnels. Il permet d'exécuter du code après le rendu du composant, comme des appels API ou des abonnements.</p>
+                        <div id="console">
+                            <code>
+                                <p>Exemple d'utilisation de l'opérateur && :</p>
+                                const isLoggedIn = true;
+                                const message = isLoggedIn && "Bienvenue !";
+                                console.log(message);
+
+                                <p>Exemple d'utilisation de l'opérateur || :</p>
+                                const name = "";
+                                const greeting = name || "Bonjour, invité !";
+                                console.log(greeting);
+                            </code>
+                        </div>
+                        <p>`&&` est utilisé pour conditionner l'exécution d'une expression. Si la première valeur est vraie, la deuxième valeur est retournée.
+                            <br> 
+                            `||` est utilisé pour fournir une valeur par défaut. Si la première valeur est fausse, la deuxième valeur est retournée.
+                        </p>
+                        <p>Voici différentes valeures de false: </p>
+                        <ul>
+                            <li>`false`</li>
+                            <li>`0`</li>
+                            <li>`""` (chaîne vide)</li>
+                            <li>`null`</li>
+                            <li>`undefined`</li>
+                        </ul>
+                        <p>Il est plus courant d'utiliser `? :` plutôt que les opérateurs `&&` et `||`.</p> <br>
+                        <p>Le hook `useEffect` est utilisé pour gérer les effets secondaires dans les composants fonctionnels. Il permet d'exécuter du code après le rendu du composant, comme des appels API ou des abonnements.</p>
+                        <div id="console">
+                            <code>
+                                <p>Exemple d'utilisation de useEffect :</p>
+                                import React, { useState, useEffect } from 'react';
+
+                                function Example() {
+                                &nbsp;&nbsp; const [count, setCount] = useState(0);
+
+                                &nbsp;&nbsp; useEffect(() =&gt; {
+                                    &nbsp;&nbsp;&nbsp;&nbsp; document.title = `Vous avez cliqué ${count} fois`;
+                                &nbsp;&nbsp; }, [count]); // Le tableau de dépendances indique que l'effet doit être exécuté lorsque 'count' change
+
+                                &nbsp;&nbsp; return (
+                                    &lt;div&gt;
+                                        &lt;p&gt;Vous avez cliqué {count} fois&lt;/p&gt;
+                                        &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+                                            Cliquez ici
+                                        &lt;/button&gt;
+                                    &lt;/div&gt;
+                                );
+                                }
+                            </code>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Fetch et promises</summary>
+                        <p>Le Fetch est une méthode pour effectuer des requêtes HTTP dans JavaScript. Il renvoie une promesse qui peut être utilisée pour gérer les réponses.</p>
+                        <div id="console">
+                            <code>
+                                fetch('https://api.example.com/data')
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        // Traiter les données
+                                    })
+                                    .catch(error => {
+                                        // Gérer les erreurs
+                                    });
+                            </code>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Router</summary>
+                        <p>Le Router est une bibliothèque qui permet de gérer la navigation entre différentes pages ou vues dans une application React. Il permet de définir des routes et de rendre des composants spécifiques en fonction de l'URL.</p>
+                        <p>Voici un exemple simple d'utilisation du Router :</p>
+                        <div id="console">
+                            <code>
+                                import React from 'react';
+                                import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+                                import Home from './Home';
+                                import About from './About';
+
+                                function App() {
+                                &nbsp;&nbsp; return (
+                                    &lt;BrowserRouter&gt;
+                                        &lt;nav&gt;
+                                            &lt;Link to="/"&gt;Accueil&lt;/Link&gt;
+                                            &lt;Link to="/about"&gt;À propos&lt;/Link&gt;
+                                        &lt;/nav&gt;
+                                        &lt;Routes&gt;
+                                            &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+                                            &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+                                        &lt;/Routes&gt;
+                                    &lt;/BrowserRouter&gt;
+                                );
+                                }
+                            </code>
+                        </div>
+                        <p>Ici, nous avons utilisé le Router pour gérer la navigation entre les différentes pages de notre application.</p>
+                        <p>On a donc défini des routes pour chaque page et utilisé le composant Link pour naviguer entre elles.</p>
+                        <p>Faut imaginer ça comme un système de navigation qui permet de basculer entre les différentes vues de notre application.</p>
+                        <p>On peux aussi utilsier useNavigate et useLocation, mais ce n'est pas obligatoire.</p>
+                    </details>
+                </details>
+            </details>
+            <details>
+                <summary>Express</summary>
+                <details>
+                    <summary>Introduction à Express</summary>
+                    <p>Express est un framework web pour Node.js qui simplifie la création d'applications web et d'API. Il fournit des fonctionnalités pour gérer les routes, les requêtes et les réponses HTTP.</p>
+                    <p>Entre autres, express agit comme middleware (je fait ça avant toi).</p>
+                    <p>Voici un exemple simple d'application Express :</p>
+                    <div id="console">
+                        <code>
+                            <p>Mise en place d'Express :</p>
+                            const express = require('express');
+                            const app = express();
+
+                            <p>Configuration du port :</p>
+                            const port = 3000;
+                        </code>
+                    </div>
+                <p>Dans cette exemple, nous avons créé une application Express simple qui écoute sur le port 3000</p>
+                <p>On peux aussi exporter et importer des modules dans notre application Express:</p>
+                <div id="console">
+                        <code>
+                            <p>Dans le fichier server.js :</p>
+                            const routes = require('./routes');
+
+                            app.use('/api', routes);
+                            export default app;
+
+                            <p>Dans le fichier routes.js :</p>
+                            import app from './server.js';
+                            const router = express.Router();
+
+                            router.get('/data', (req, res) =&gt; {
+                                res.json({ message: 'Données récupérées avec succès !' });
+                            });
+
+                            module.exports = router;
+                        </code>
+                    </div>
+                    <p>routes est une variable qui récupère les routes définies et app.use('/api', routes) les utilise dans l'application principale sous le chemin '/api'<br>
+                    Dans le fichier routes.js, on récupère app qui avait été exporté, et on crée un router Express pour définir les routes. router.get() crée une route "/data" qui répond avec un message JSON.</p>
+                    <p>Ce qu'il faut retenir, imaginons https://example.com/api/data, l'adresse du site c'est https://example.com et /api c'est le chemin de l'API et /data est le chemin spécifique à la route.</p>
+                    <p>Pour importer exporter plusieurs objets, on peut utiliser les exportations nommées et les importations avec { } (et même les renommer ex: import {pi as malware, john})</p>                
+                    <p>Les routes dans Express peuvent inclure des paramètres qui permettent de capturer des valeurs spécifiques dans l'URL.</p>
+                <div id="console">
+                    <code>
+                        <p>Exemple de route avec paramètre :</p>
+                        app.get('/users/:id', (req, res) =&gt; {
+                            const userId = req.params.id;
+                            res.json({ id: userId });
+                        });
+                    </code>
+                </div>
+                <p>Dans cet exemple, le paramètre `:id` capture la valeur de l'ID utilisateur dans l'URL. sur https://example.com/api/users/123, l'ID utilisateur est 123.</p>
+                <p>Nous utilisons get pour récupérer les données. Il y a aussi d'autres méthodes HTTP: post, put, delete et patch</p>
+                <p>Get permet de récupérer des ressources. Post permet de créer de nouvelles ressources. Put permet de mettre à jour une ressource existante. Delete permet de supprimer une ressource. Patch permet de mettre à jour partiellement une ressource.</p>
+                <p>Différentes manières ensuite de répondre aux requêtes HTTP :</p>
+                <div id="console">
+                    <code>
+                        <p>Exemple de réponse avec res.send :</p>
+                        app.get('/hello', (req, res) =&gt; {
+                            res.send('Hello World!');
+                        });
+
+                        <p>Exemple de réponse avec res.json :</p>
+                        app.get('/data', (req, res) =&gt; {
+                            res.json({ message: 'Données récupérées avec succès !' });
+                        });
+
+                        <p>Exemple de réponse avec res.status :</p>
+                        app.get('/error', (req, res) =&gt; {
+                            res.status(200).send('OK');
+                        });
+                    </code>
+                </div>
+                <p>.send envoie une réponse simple sous forme de chaîne de caractères. .json envoie une réponse JSON. .status permet de définir le code de statut HTTP de la réponse.</p>
+                <p>Enfin, il y a req.body pour accéder aux données envoyées dans le corps de la requête (souvent utilisé avec POST et PUT).</p>
+                <div id="console">
+                    <code>
+                        <p>Exemple d'utilisation de req.body :</p>
+                        app.use(express.json()); <p>Nous verons ça plus tard, juste ignore le ;-</p>
+
+                        app.post('/submit', (req, res) =&gt; {
+                            const data = req.body;
+                            res.json({ received: data });
+                        });
+                    </code>
+                </div>
+                <p>On récupère les données envoyées dans le corps de la requête en utilisant req.body.</p>
+                </details>
+                
+                <details>
+                    <summary>Middleware</summary>
+                    <p>Les middlewares sont des fonctions qui s'exécutent pendant le cycle de vie d'une requête HTTP dans une application Express. Ils peuvent être utilisés pour effectuer des tâches telles que l'authentification, la journalisation, la validation des données, etc.</p>
+                    <p>Pour en dire bref, les middlewares sont des fonctions intermédiaires qui permettent de manipuler les requêtes et réponses HTTP dans une application Express.</p>
+                    <p>Voici un exemple simple de middleware :</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple de middleware :</p>
+                            app.use(express.json()); <p>permet de parser le corps des requêtes JSON</p>
+                            <p>ou</p>
+                            app.use(express.urlencoded()); <p>permet de parser le corps des requêtes URL-encoded</p>
+                            <p>Parser signifie "analyser" ou "traiter" au cas où.</p>
+
+                            <p>Donc:</p>
+                            app.use(express.json());
+
+                            const myMiddleware = (req, res, next) =&gt; {
+                                console.log('Middleware exécuté !');
+                                next();
+                            };
+                            app.use(myMiddleware);
+                        </code>
+                    </div>
+                    <p>Dans le code ci-dessus, nous créons la variable `myMiddleware` qui contient une fonction middleware. Nous l'utilisons ensuite avec `app.use(myMiddleware)` pour l'appliquer à toutes les routes.</p>
+                    <p>Il y a aussi une manière de procéder différement.</p>
+                    <p>Clarifions, express.json() est un middleware déjà intégré à Express.js qui permet de lire les body des requêtes JSON, qui sont des données structurées au format JSON comme les objets JavaScript.</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple de middleware spécifique :</p>
+                            const myMiddleware = (req, res, next) =&gt; {
+                                console.log('Middleware exécuté !');
+                                next();
+                            };
+
+                            app.put('/hello', myMiddleware, (req, res) =&gt; {
+                                const name = req.body.name;
+                                res.send(`Hello ${name}!`);
+                            });
+                            app.use(express.json());
+                        </code>
+                    </div>
+                    <p>Dans cet exemple, le middleware `myMiddleware` est appliqué uniquement à la route `/hello`. Il s'exécutera avant le gestionnaire de la route et affichera "Middleware exécuté !" dans la console.</p>
+                    <p>petit exemple avec 2 middlewares:</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple de deux middlewares :</p>
+                            const middleware1 = (req, res, next) =&gt; {
+                                console.log('Middleware 1 exécuté !');
+                                next();
+                            }; <p>Avec next() on passe au middleware suivant, sans next(), on coupe la chaîne de middleware. next() va chercher le prochain middleware dans la chaîne ou ceux par app.use()</p>
+
+                            const middleware2 = (req, res, next) =&gt; {
+                                console.log('Middleware 2 exécuté !');
+                                next();
+                            };
+
+                            app.get('/hello', middleware1, middleware2, (req, res) =&gt; {
+                                res.send('Hello World!');
+                            }); <p>ici, définir middleware2 n'est pas nécessaire si middleware2 est dans la chaîne de middlewares.</p>
+                        </code>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Middlewares avec routes</summary>
+                    <div id="console">
+                        <code>
+                            <p>App.js</p>
+                            const express = require('express');
+                            const app = express();
+                            const router = express.Router();
+
+                            const UserRoutes = require('./userRoutes');
+
+                            module.exports = router;
+
+                            <p>Router.js</p>
+                            router.route('/item/:id').get((req, res) =&gt; {
+                                res.send('Get a book');
+                            }).put((req, res) =&gt; {
+                                res.send('Update a book');
+                            }).delete((req, res) =&gt; {
+                                res.send('Delete a book');
+                            });
+                        </code>
+                    </div>
+                    <p>Il y a beaucoup de chose à expliquer, voici une liste d'infos :</p>
+                    <ul>
+                        <li>const router = express.Router(); : Crée un mini router Express.</li>
+                        <li>UserRoutes : Importe un autre routeur Express.</li>
+                        <li>router.route() permet de définir plusieurs méthodes HTTP pour une même route. <br>
+                        Tu aurais dû faire router.get() puis router.put() etc. Sauf que tu fait router.route().get(get).put(put).delete(delete)</li>
+                        <li>router.use() : Applique un middleware à toutes les routes du routeur. N'était pas dans l'exemple précédent.</li>
+                        <li>router.route().all((req, res, next) => { ... }) : Applique un middleware à toutes les méthodes HTTP d'une route.</li>
+                    </ul>
+                    <p>Pour router.route().all([x, y]), x et y peuvent être des middlewares prédéfinis à l'avance et dont la référence est passée en paramètre. Les [ ] représentent un tableau de middlewares, pas nécessaire si il n'y en a qu'un seul.</p>
+                    <p>Si nous voulons qu'une seule des routes déclanche le middleware, nous pouvons l'appliquer directement à cette route.</p>
+                    <div id="console">
+                        <code>
+                            <p>Middlewares avec .all()</p>
+                            const express = require('express');
+                            const app = express();
+
+
+
+                            const middleware1 = (req, res, next) =&gt; {
+                                console.log('Middleware 1 exécuté !');
+                                next();
+                            };
+
+                            const middleware2 = (req, res, next) =&gt; {
+                                console.log('Middleware 2 exécuté !');
+                                next();
+                            };
+
+                            router.route('/item/:id')
+                                .all(middleware1)
+                                .get(middleware2, (req, res) =&gt; {
+                                    res.send('Get a book');
+                                })
+                                .put((req, res) =&gt; {
+                                    res.send('Update a book');
+                                })
+                                .delete((req, res) =&gt; {
+                                    res.send('Delete a book');
+                                });
+                        </code>
+                    </div>
+                    <p>.get, .put et .delete éxécutent middleware1, et .get utilise middleware2 en plus.</p>
+                    <p>Il existe aussi fetch() qui permet de faire des requêtes HTTP (c'est une fonction cliente), res.redirect(301, "/new-path") qui redirige vers une autre route. <br>
+                    le code 301 représente une redirection permanente. 302 représente une redirection temporaire.</p>
+                </details>
+
+                <details>
+                    <summary>req. et erreurs</summary>
+                    <p>Déjà, tu es arrivé jusqu'ici, et je tiens à te féliciter pour ton avancée. Ce chapitre a déjà été traîté mais permet de faire un bon rappel.</p>
+                    <p>Nous verons req.params, req.query et req.body. Nous les différencierons dans les exemples. puis nous verrons les codes d'erreurs qu'on peux utiliser.</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple d'utilisation de req.params :</p>
+                            <p>L'url est https://example.com/users/123</p>
+                            app.get('/users/:id', (req, res) =&gt; {
+                                const userId = req.params.id;
+                                res.json({ id: userId });
+                            }); <p>Dans cet exemple, `userId` contient la valeur du paramètre `id` de l'URL. req.params.id permet de récupérer cette valeur. <br>
+                            S'il y a plusieurs paramètres, ils peuvent être accessibles via `req.params`:</p>
+                            const [id, name] = req.params; <p>Dans cet exemple, nous récupérons les valeurs des paramètres `id` et `name` dans une variable déstructurée.</p>
+
+                            <p>Exemple d'utilisation de req.query :</p>
+                            <p>l'url est https://example.com/search?q=python</p>
+                            app.get('/search', (req, res) =&gt; {
+                                const query = req.query.q;
+                                res.json({ query: query });
+                            }); <p>Dans cet exemple, `query` contient la valeur du paramètre `q` de l'URL. req.query.q permet de récupérer cette valeur.</p>
+                            <p>La valeur du query est un objet, dans l'url ce serais search?q=17&a=1 - les paramètres sont séparés par des & et après le ?</p>
+
+                            <p>Exemple d'utilisation de req.body :</p>
+                            <p>l'url est https://example.com/submit</p>
+                            app.post('/submit', (req, res) =&gt; {
+                                const data = req.body;
+                                res.json({ received: data });
+                            }); <p>Dans cet exemple, `data` contient les données envoyées dans le corps de la requête. req.body permet de récupérer ces données.</p>
+                            <p>Pour utiliser req.body, il faut utiliser un middleware pour parser le corps de la requête, comme express.json() ou express.urlencoded().</p>
+                        </code>
+                    </div>
+                    <br>
+                    <p>Pour les codes d'erreurs, il y a plusieurs codes d'état HTTP qui peuvent être utilisés pour indiquer le succès ou l'échec d'une requête. Voici quelques exemples :</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemples de codes d'état HTTP :</p>
+                            <p>Code 200, succès</p> <br>
+                            res.status(200).send('OK'); <p>la reqûete a réussi</p>
+                            res.status(201).send('Created'); <p>la ressource a été créée</p>
+                            res.status(202).send('Accepted'); <p>Requête acceptée, pas forcément terminée (le traitement est en cours)</p>
+                            res.status(204).send('No Content'); <p>réussi, mais pas de données à retourner (évite .send avec avec 204)</p> <br>
+
+                            <p>Redirections (il n'y a pas de .send avec eux, je 'ai mis pour que vous voyez le nom du code).</p> <br>
+                            res.redirect(301, '/new-path').send('Moved Permanently'); <p>Redirection permanente</p>
+                            res.redirect(302, '/new-path').send('Found'); <p>Redirection temporaire</p>
+                            res.redirect(303, '/new-path').send('See Other'); <p>Redirection vers une autre URL</p>
+                            res.redirect(304, '/new-path').send('Not Modified'); <p>Rien n'as changé, c'est pas une redirection</p> 
+                            res.redirect(307, '/new-path').send('Temporary Redirect'); <p>Redirection temporaire (méthode HTTP inchangée)</p>
+                            res.redirect(308, '/new-path').send('Permanent Redirect'); <p>Redirection permanente (méthode HTTP inchangée)</p> <br>
+
+                            <p>Code 400, erreur client</p> <br>
+                            res.status(400).send('Bad Request'); <p>Requête incorrecte</p>
+                            res.status(401).send('Unauthorized'); <p>Non autorisé (identifiants manquants ou invalides)</p>
+                            res.status(403).send('Forbidden'); <p>Interdit (accès non autorisé même avec identifiants)</p>
+                            res.status(404).send('Not Found'); <p>Non trouvé</p>
+                            res.status(405).send('Method Not Allowed'); <p>Méthode HTTP non autorisée</p>
+                            res.status(406).send('Not Acceptable'); <p>Non acceptable</p>
+                            res.status(408).send('Request Timeout'); <p>Requête expirée (trop longue)</p>
+                            res.status(409).send('Conflict'); <p>Conflit avec l'état actuel de la ressource</p>
+                            res.status(410).send('Gone'); <p>Ressource supprimée</p>
+                            res.status(413).send('Content Too Large'); <p>contenu trop volumineux</p>
+                            res.status(414).send('URI Too Long'); <p>URL trop longue</p>
+                            res.status(415).send('Unsupported Media Type'); <p>Type de contenu non supporté</p>
+                            res.status(418).send("I'm a teapot"); <p>Je suis une théière (code d'erreur humoristique)</p>
+                            res.status(422).send('Unprocessable Content'); <p>Requête comprise mais données invalides. ex: "age" = -5</p>
+                            res.status(429).send('Too Many Requests'); <p>Trop de requêtes</p> <br>
+
+                            <p>Code 500, erreur serveur</p> <br>
+                            res.status(500).send('Internal Server Error'); <p>Erreur interne du serveur</p>
+                            res.status(501).send('Not Implemented'); <p>Fonctionnalité non implémentée</p>
+                            res.status(502).send('Bad Gateway'); <p>Mauvaise réponse d'un serveur intermédiaire</p>
+                            res.status(503).send('Service Unavailable'); <p>Service indisponible</p>
+                            res.status(504).send('Gateway Timeout'); <p>serveur intermédiaire trop long à répondre</p> <br>
+                        </code>
+                    </div>
+                </details>
+            </details>
+
+            <details>
+                <summary>SQL</summary>
+                <details>
+                    <summary>Introduction à SQL</summary>
+                    <p>Bienvenue sur SQL 😃, un language qui vous feras des merveilles ! Vous allez adorer !</p>
+                    <p>Premièrement, SQL est un language qui permet de gérer des bases de données relationnelles telles que des tableaux.</p>
+                    <p>Pour cela, je vous présente un beau tableau:</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple de tableau :</p>
+                            Users
+                            =====================
+                            | ID | Nom    | Âge |
+                            |----|--------|-----|
+                            | 1  | Alice  | 25  |
+                            | 2  | Bob    | 30  |
+                            | 3  | Charlie| 22  |
+                            | 4  | David  | 25  |
+                            =====================
+                        </code>
+                    </div>
+                    <p>Première étape, essayons de séléctionner un élément du tableau. Nous avons un tableau nommé 'Users', séléctionnons-le tableau entier.</p>
+                    <div id="console">
+                        <code>
+                            SELECT ID, Nom, Âge
+                            FROM Users;
+                            <p>La console affiche tous le tableau.</p>
+                        </code>
+                    </div>
+                    <p>La première instruction en SQL, c'est <strong>SELECT</strong>. Il permet de sléctionner un ou des éléments. Ensuite, nous spécifions les colonnes que nous voulons récupérer.</p>
+                    <p>Biensûr, on doit spécifier quel tableau nous voulons utiliser. Nous le justifions avec le mot-clé <strong>FROM</strong> puis le nom du tableau.</p>
+                    <p>Une manière pour tous séléctionner du tableau est d'utiliser l'astérisque (<strong>*</strong>) :</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple de requête SQL :</p>
+                            SELECT *
+                            FROM Users;
+                            <p>La console affiche tous le tableau.</p>
+                        </code>
+                    </div>
+                    <p>Si nous vonlons séléctionner le colonne âge spécifique afin de voir les âges qu'ont les utilisateurs, nous risquons d'avoir des valeurs doublées.</p>
+                    <p>Pour cela, nous utilisons <strong>DISTINCT SELECT</strong></p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple de requête SQL :</p>
+                            SELECT DISTINCT Âge
+                            FROM Users;
+                            <p>La console affiche les âges distincts : 25, 30, 22.</p>
+                        </code>
+                    </div>
+                    <p>Pour filtrer les résultats, nous utilisons le mot-clé <strong>WHERE</strong>. Il permet de spécifier une condition pour les lignes que nous voulons récupérer.</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple de requête SQL :</p>
+                            SELECT *
+                            FROM Users
+                            WHERE Âge = 25;
+                            <p>La console affiche les utilisateurs ayant 25 ans : Alice et David.</p>
+                        </code>
+                    </div>
+                    <p>Les opérateurs en SQL sont :</p>
+                    <ul>
+                        <li><strong>=</strong> : égal à</li>
+                        <li><strong>&lt;&gt;</strong> : différent de</li>
+                        <li><strong>&gt;</strong> : supérieur à</li>
+                        <li><strong>&lt;</strong> : inférieur à</li>
+                        <li><strong>&gt;=</strong> : supérieur ou égal à</li>
+                        <li><strong>&lt;=</strong> : inférieur ou égal à</li>
+                    </ul>
+                    <p>Si nous voulons trier les résultats, nous utilisons le mot-clé <strong>ORDER BY</strong>. Il permet de spécifier la colonne par laquelle nous voulons trier les lignes.</p>
+                    <div id="console">
+                        <code>
+                            SELECT *
+                            FROM Users
+                            ORDER BY Âge ASC;
+                            <p>La console affiche les utilisateurs triés par âge croissant.</p> <br> <br>
+
+                            
+                            SELECT *
+                            FROM Users
+                            ORDER BY Âge DESC;
+                            <p>La console affiche les utilisateurs triés par âge décroissant.</p>
+                        </code>
+                    </div>
+                    <p>Enfin nous pouvons renommer les colonnes dans les résultats en utilisant le mot-clé <strong>AS</strong>.</p>
+                    <div id="console">
+                        <code>
+                            SELECT Nom AS NomUtilisateur, Âge AS AgeUtilisateur
+                            FROM Users;
+                            <p>La console affiche les colonnes renommées : NomUtilisateur et AgeUtilisateur.</p>
+                        </code>
+                    </div>
+                    <br>
+                    <p>Il existe aussi pour WHERE: <strong>BETWEEN</strong>, <strong>LIKE</strong>, et <strong>IN</strong> avec <strong>AND</strong>, <strong>OR</strong>, <strong>NOT</strong>.</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple d'utilisation de BETWEEN :</p>
+                            SELECT *
+                            FROM Users
+                            WHERE Âge BETWEEN 25 AND 30;
+                            <p>La console affiche les utilisateurs ayant un âge compris entre 25 et 30 ans : Alice, Bob et David.</p>
+
+                            <p>Exemple d'utilisation de LIKE :</p>
+                            SELECT *
+                            FROM Users
+                            WHERE Nom LIKE 'A%';
+                            <p>La console affiche les utilisateurs dont le nom commence par 'A' : Alice. <strong>"%"</strong> correspond à une séquence de caractères quelconques.</p>
+
+                            <p>Exemple d'utilisation de IN :</p>
+                            SELECT *
+                            FROM Users
+                            WHERE Nom IN ('Alice', 'Bob');
+                            <p>La console affiche les utilisateurs dont le nom est soit 'Alice' soit 'Bob'.</p>
+
+                            <p>Exemple d'utilisation de AND :</p>
+                            SELECT *
+                            FROM Users
+                            WHERE Âge > 25 AND Nom = 'Bob';
+                            <p>La console affiche les utilisateurs ayant un âge supérieur à 25 ans et dont le nom est 'Bob'.</p>
+
+                            <p>Exemple d'utilisation de OR :</p>
+                            SELECT *
+                            FROM Users
+                            WHERE Âge < 25 OR Nom = 'David';
+                            <p>La console affiche les utilisateurs ayant un âge inférieur à 25 ans ou dont le nom est 'David'.</p>
+
+                            <p>Exemple d'utilisation de NOT :</p>
+                            SELECT *
+                            FROM Users
+                            WHERE NOT Nom = 'Charlie';
+                            <p>La console affiche tous les utilisateurs sauf ceux dont le nom est 'Charlie'.</p>
+                        </code>
+                    </div>
+                    <p>Puis dans la lancée, il y a les fonctions d'agrégation comme <strong>COUNT</strong>, <strong>SUM</strong>, <strong>AVG</strong>, <strong>MIN</strong> et <strong>MAX</strong>.</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple d'utilisation de COUNT :</p>
+                            SELECT COUNT(*) AS NombreUtilisateurs
+                            FROM Users;
+                            <p>La console affiche le nombre total d'utilisateurs : 4.</p>
+
+                            <p>Exemple d'utilisation de SUM :</p>
+                            SELECT SUM(Âge) AS SommeAges
+                            FROM Users;
+                            <p>La console affiche la somme des âges des utilisateurs : 102.</p>
+
+                            <p>Exemple d'utilisation de AVG :</p>
+                            SELECT AVG(Âge) AS AgeMoyen
+                            FROM Users;
+                            <p>La console affiche l'âge moyen des utilisateurs : 25.5.</p>
+
+                            <p>Exemple d'utilisation de MIN :</p>
+                            SELECT MIN(Âge) AS AgeMinimum
+                            FROM Users;
+                            <p>La console affiche l'âge minimum des utilisateurs : 22.</p>
+
+                            <p>Exemple d'utilisation de MAX :</p>
+                            SELECT MAX(Âge) AS AgeMaximum
+                            FROM Users;
+                            <p>La console affiche l'âge maximum des utilisateurs : 30.</p>
+                        </code>
+                    </div>
+                    <p>Pour le plus complexe avec la relation entre les tables, on peut utiliser des jointures (JOIN).</p>
+                    <p>cette catégorie est plus avancée:</p>
+                    <div id="console">
+                        <code>
+                            <p>INNER JOIN :</p>
+                            SELECT *
+                            FROM artist
+                            JOIN album
+                            ON artist.artist_id = album.artist_id;
+                            <p>La console affiche les artistes et leurs albums correspondants, avec une jointure interne entre deux tables.</p>
+                        </code>
+                    </div>
+                    <p>Il existe aussi LEFT JOIN, RIGHT JOIN et FULL OUTER JOIN.</p>
+                    <p>Voici comment marche les 4 JOIN :</p>
+                    <ul>
+                        <li><strong>INNER JOIN</strong> : Affiche les enregistrements qui ont des correspondances dans les deux tables.</li>
+                        <li><strong>LEFT JOIN</strong> : Affiche tous les enregistrements de la table de gauche, même s'il n'y a pas de correspondance dans la table de droite.</li>
+                        <li><strong>RIGHT JOIN</strong> : Affiche tous les enregistrements de la table de droite, même s'il n'y a pas de correspondance dans la table de gauche.</li>
+                        <li><strong>FULL OUTER JOIN</strong> : Affiche tous les enregistrements des deux tables, avec des NULL pour les correspondances manquantes.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Alterations</summary>
+                    <p>Avec SQL, on peut modifier la structure d'une table en utilisant des commandes comme <strong>INSERT INTO</strong> et bien d'autres:</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple d'insertion de données :</p>
+                            INSERT INTO Users (Nom, Âge)
+                            VALUES ('Eve', 28);
+                            <p>La console affiche un tableau avec l'utilisateur Eve ajouté à la table Users avec les valeurs spécifiées.</p>
+
+                            DELETE FROM Users
+                            WHERE Nom = 'Bob';
+                            <p>La console affiche un tableau avec l'utilisateur Bob supprimé de la table Users.</p>
+
+                            UPDATE Users
+                            SET Âge = 26
+                            WHERE Nom = 'Alice';
+                            <p>La console affiche un tableau avec l'âge de l'utilisateur Alice mis à jour à 26.</p>
+                        </code>
+                    </div>
+                    <p>Vous aimez Express ? parce qu'on va en avoir besoin pour notre application web !</p>
+                    <p>Avec db.exec() on peux exécuter des commandes SQL:</p>
+                    <div id="console">
+                        <code>
+                            const Database = require('better-sqlite3');
+                            const db = new Database('mydatabase.db');
+
+                            db.exec("CREATE TABLE Users (ID INTEGER PRIMARY KEY, Nom TEXT, Âge INTEGER)");
+                        </code>
+                    </div>
+                    <p>Ici, on utilise SQL et on crée une table Users avec les colonnes ID, Nom et Âge. <br>
+                    On a aussi associer leur type de données, INTEGER pour les nombres et TEXT pour les chaînes de caractères. Il existe aussi REAL pour les float, BOOLEAN pour les valeurs booléennes.</p>
+                    <p>On utilise aussi <strong>IF NOT EXISTS</strong> pour éviter les erreurs si la table existe déjà lors de sa création.</p>
+                    <p>Quelque chose d'import est d'importer SQL sur express, ce n'est pas automatique.</p>
+                    <p>En express, il faut sécuriser la lecture des données.</p>
+                    <div id="console">
+                        <code>
+                            const stmt = db.prepare('SELECT * FROM Users WHERE Nom = ?');
+                            const user = stmt.get('Alice');
+                            console.log(user);
+                        </code>
+                    </div>
+                    <p>Dans cet exemple, nous préparons une requête SQL avec un paramètre de substitution (le point d'interrogation). Ensuite, nous exécutons la requête en passant la valeur 'Alice' pour le paramètre. Cela permet d'éviter les injections SQL et de sécuriser la lecture des données.</p>
+                    <p>La substitutuion des paramètres est une pratique importante pour assurer la maniabilité de l'application. Chaque <strong>?</strong> ont un ordre, et l'insertion de valeurs suit cet ordre.</p>
+                    <p>Dans l'exemple, on utilise la méthode <strong>get()</strong> pour récupérer un seul enregistrement.</p>
+
+                    <p>Quand il y a plusieurs enregistrements à récupérer, on peut utiliser la méthode <strong>all()</strong> au lieu de <strong>get()</strong>.</p>
+                    <br>
+                    <p>s'il y a beaucoup de données à insérer en même temps, on utilise:</p>
+                    <div id="console">
+                        <code>
+                            const insertStmt = db.prepare('INSERT INTO Users (Nom, Âge) VALUES (?, ?)');
+                            const insertMany = db.transaction((users) =&gt; {
+                                for (const user of users) {
+                                    insertStmt.run(user.Nom, user.Âge);
+                                }
+                            });
+
+                            const usersToInsert = [
+                                { Nom: 'Frank', Âge: 29 },
+                                { Nom: 'Grace', Âge: 31 },
+                                { Nom: 'Hannah', Âge: 27 }
+                            ];
+
+                            insertMany(usersToInsert);
+                        </code>
+                    </div>
+                    <p>Dans cet exemple, nous préparons une requête d'insertion avec des paramètres de substitution. Ensuite, nous créons une transaction en utilisant db.transaction() pour insérer plusieurs utilisateurs en une seule opération. Cela permet d'améliorer les performances et de garantir l'intégrité des données.</p>
+                    <p>Autrement dit, les transactions permettent de grouper plusieurs opérations en une seule unité de travail.</p>
+                    <p>La transaction agit comme une fonction fléchée. La méthode run() est appelée pour exécuter la requête avec les valeurs des paramètres.</p>
+
+                    <br>
+                    <p>Quelque chose d'important, en SQL, la strucutre n'est pas figée, notamment avec:</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple d'ajout de colonne :</p>
+                            ALTER TABLE Users
+                            ADD COLUMN Email TEXT;
+                            <p>La console affiche un tableau avec la colonne Email ajoutée à la table Users.</p>
+
+                            <p>Exemple de suppression de colonne :</p>
+                            ALTER TABLE Users
+                            DROP COLUMN Email;
+                            <p>La console affiche un tableau avec la colonne Email supprimée de la table Users.</p>
+
+                            <p>Exemple de renommage de colonne :</p>
+                            ALTER TABLE Users
+                            RENAME COLUMN Nom TO Prenom;
+                            <p>La console affiche un tableau avec la colonne Nom renommée en Prenom.</p>
+
+                        <p>Notamment <strong>DROP TABLE</strong> pour supprimer une table entière.</p>
+                        </code>
+                    </div>
+                    <p>Il existe les sous-requêtes, qui permettent de faire des requêtes imbriquées:</p>
+                    <div id="console">
+                        <code>
+                            <p>Exemple de sous-requête :</p>
+                            SELECT *
+                            FROM Users
+                            WHERE Âge = 
+                            (SELECT MAX(Âge) FROM Users);
+                            <p>La console affiche l'utilisateur ayant l'âge maximum.</p>
+                        </code>
+                    </div>
+                </details>
+            </details>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Contenu Python-->
+        <div id="pythonContent" class="HIDDEN" role="region" aria-labelledby="pythonHeading">
+            <h1 id="pythonHeading">Python</h1>
+        </div>
+
+
+         <script src="rmemory.js"></script>
+    </body>
+</html>

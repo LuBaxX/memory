@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --bg-1: #071226;
+    --bg-2: #0e2233;
+    --card-bg: rgba(255,255,255,0.03);
+    --text: #e6f0ff;
+    --muted: #9fb1cc;
+    --accent: #007acc;
+    --code-bg: rgba(12,18,28,0.65);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at 10% 10%, rgba(2,6,23,0.6), transparent 25%), linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 28px 20px;
+}
+
+#StartContent {
+    max-width: 1100px;
+    margin: 0 auto 18px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius: 12px;
+    padding: 20px 26px;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 18px auto;
+    max-width: 1100px;
+    padding: 8px 12px;
+}
+
+.buttonContainer button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.buttonContainer button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(2,6,23,0.55);
+}
+
+/* Individual language colors */
+.buttonContainer .html-btn { background: #e34f26; color: #fff; }
+.buttonContainer .css-btn { background: #2965f1; color: #fff; }
+.buttonContainer .js-btn { background: #f7df1e; color: #000; }
+.buttonContainer .js-adv-btn { background: #8a2be2; color: #fff; }
+.buttonContainer .py-btn { background: #306998; color: #fff; }
+
+.buttonContainer .html-btn:hover { background: #c74420; }
+.buttonContainer .css-btn:hover { background: #234fcf; }
+.buttonContainer .js-btn:hover { background: #e6d312; }
+.buttonContainer .js-adv-btn:hover { background: #6f1fc0; }
+.buttonContainer .py-btn:hover { background: #274f7a; }
+
+/* Menu button (visible on content pages) */
+.menu-btn {
+    position: fixed;
+    left: 18px;
+    top: 18px;
+    z-index: 1200;
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+    backdrop-filter: blur(6px);
+    transition: transform .12s ease, opacity .12s ease;
+}
+.menu-btn:hover { transform: translateY(-2px); opacity: 0.95; }
+.menu-btn:focus { outline: 2px solid rgba(0,122,204,0.22); }
+
+/* content cards */
+#htmlContent,
+#cssContent,
+#jsContent,
+#pythonContent,
+#jsComplexContent,
+div.HTML,
+div.CSS,
+div.JavaScript,
+div.JS,
+div.Python {
+    max-width: 1100px;
+    margin: 18px auto;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding: 22px 26px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.5);
+    border: 1px solid rgba(255,255,255,0.03);
+    color: var(--text);
+    position: relative;
+}
+
+/* show / hide helpers */
+.HIDDEN { display: none !important; }
+.SHOW { display: block; }
+
+h1 {
+    font-size: 28px;
+    margin: 0 0 12px 0;
+    font-weight: 800;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(0,122,204,0.08), rgba(138,43,226,0.06));
+    box-shadow: 0 8px 24px rgba(2,6,23,0.5);
+}
+
+h2 {
+    font-size: 18px;
+    margin: 20px 0 12px;
+    padding: 8px 12px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.03), transparent);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    color: #eaf6ff;
+}
+
+h3 {
+    font-size: 15px;
+    margin: 12px 0 8px;
+    color: #ffdbe9;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.01);
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 6px 0 12px;
+}
+
+ul, ol {
+    color: #d8e8ff;
+    margin-left: 1.4rem;
+    padding-left: 0.6rem;
+    line-height: 1.9;
+    list-style-position: inside;
+}
+
+li {
+    margin-bottom: 0.75rem;
+    list-style-type: disc;
+}
+
+div#console, div.console {
+    position: relative;
+    overflow: visible;
+    background: rgba(8, 15, 30, 0.96);
+    color: #e8f0ff;
+    border-radius: 16px;
+    padding: 1.3rem 8px 4px 12px;
+    margin: 22px 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;
+    font-size: 13px;
+    line-height: 0.9rem;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    border: 1px solid rgba(0, 122, 204, 0.24);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 20px 35px rgba(0, 0, 0, 0.18);
+}
+
+div#console code, div.console code {
+    background: rgba(2, 8, 18, 0.92);
+    padding: 2px 8px 0 12px;
+    border-radius: 14px;
+    display: block;
+    color: #f8fbff;
+    font-size: 0.95em;
+    line-height: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+div#console::before,
+div.console::before {
+    content: 'code';
+    position: absolute;
+    top: 0.15rem;
+    left: 1.2rem;
+    transform: translateY(-50%);
+    display: inline-block;
+    padding: 0.22rem 0.7rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: lowercase;
+    color: #d9f1ff;
+    background: rgba(0, 122, 204, 0.24);
+    border: 1px solid rgba(0, 122, 204, 0.38);
+    border-radius: 999px;
+    line-height: 1.2;
+    font-weight: 800;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.03);
+    z-index: 2;
+}
+
+.console-marker {
+    display: inline-flex;
+    align-items: center;
+    color: #d5f0ff;
+    background: rgba(0, 122, 204, 0.16);
+    border: 1px solid rgba(0, 122, 204, 0.3);
+    border-radius: 999px;
+    padding: 0.18rem 0.6rem;
+    font-size: 0.88em;
+    margin: 0.24rem 0;
+}
+
+/* Hide redundant line breaks after block-level elements for cleaner rendering */
+div#console + br,
+div.console + br,
+details + br,
+summary + br,
+p + br,
+input + br,
+textarea + br,
+select + br {
+    display: none;
+}
+
+#console p, .console p {
+    color: #255339;
+    margin: 0 0 0.22rem;
+    line-height: 1.35;
+    font-style: normal;
+}
+
+#console code p, .console code p {
+    margin: 0.12rem 0;
+    color: #8fe3b3;
+    line-height: 1.35;
+}
+
+li {
+    margin-bottom: 0.75rem;
+}
+
+em {
+    color: #ffd380;
+    font-style: normal;
+    font-weight: 700;
+}
+
+details {
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1rem 1.05rem 1.2rem;
+    margin: 1.3rem 0;
+    transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+    overflow: hidden;
+}
+
+details[open] {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(0, 122, 204, 0.22);
+    transform: translateY(-0.5px);
+}
+
+details summary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.95rem 1rem;
+    margin: 0 0 1rem;
+    font-weight: 700;
+    color: #f8fbff;
+    list-style: none;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+details summary:hover,
+details[open] summary {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 122, 204, 0.3);
+}
+
+details summary:focus-visible {
+    outline: 2px solid rgba(0, 122, 204, 0.35);
+    outline-offset: 4px;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details summary::after {
+    content: '▸';
+    font-size: 0.95em;
+    color: #9fb1cc;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+details[open] summary::after {
+    transform: rotate(90deg);
+    color: #dfe8ff;
+}
+
+details details {
+    margin-left: 1.3rem;
+    padding-left: 0.95rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+details details summary {
+    font-size: 0.98em;
+    background: rgba(255, 255, 255, 0.035);
+    border-radius: 12px;
+}
+
+details details details {
+    margin-left: 1rem;
+}
+
+#img {
+    width: 30%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 6px 24px rgba(2, 6, 23, 0.6);
+}
+
+/* small helpers */
+.HIGHLIGHT { background: yellow; }
+
+/* responsive tweaks */
+@media (max-width: 900px) {
+    body { padding: 18px 12px; }
+    .buttonContainer { flex-wrap: wrap; }
+    #img { width: 60%; }
+}
+
+/* Toggle button for hidden examples */
+.toggle-example-btn {
+    display: inline-block;
+    background: rgba(255,255,255,0.02);
+    color: var(--accent);
+    border: 1px solid rgba(255,255,255,0.04);
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    margin: 10px 0 8px;
+}
+.toggle-example-btn:hover {
+    background: rgba(255,255,255,0.035);
+    transform: translateY(-1px);
+}
+
+.console-inline { margin-top: 6px; }
+
+/* per-div toggle button */
+.local-toggle-btn {
+    display: inline-block;
+    background: rgba(255,255,255,0.02);
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.04);
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    margin: 8px 0 12px;
+}
+.local-toggle-btn:hover { background: rgba(255,255,255,0.035); transform: translateY(-1px); }
+
+/* hide everything in a signed div except its h2 and the local-toggle button when collapsed */
+.local-collapsed > *:not(h2):not(.local-toggle-btn) {
+    display: none !important;
+}
+
+/* per-section collapse */
+.section-collapse-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.03);
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* When a section is collapsed, hide everything except the heading and toggle buttons */
+.section-collapsed > *:not(h1):not(.section-collapse-btn):not(.toggle-example-btn) {
+    display: none !important;
+}
+
+.toggle-all-btn {
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.toggle-all-btn:hover { transform: translateY(-2px); }
