@@ -34,43 +34,131 @@ body {
 }
 
 .buttonContainer {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
+    display: grid;
+    gap: 10px;
     margin: 18px auto;
     max-width: 1100px;
     padding: 8px 12px;
 }
 
+.button-row {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    align-items: stretch;
+    max-width: 100%;
+    margin: 0 auto;
+    width: min(100%, 760px);
+    padding: 2px 0;
+}
+
+.button-row:last-child > :first-child {
+    grid-column: 2;
+}
+
 .buttonContainer button {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 8px;
+    position: relative;
+    width: 100%;
+    height: 44px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px;
+    padding: 4px 2px;
+    min-width: 0;
+    line-height: 1.05;
+    overflow-wrap: anywhere;
     cursor: pointer;
-    font-weight: 600;
-    box-shadow: 0 6px 18px rgba(2,6,23,0.45);
-    transition: transform .12s ease, box-shadow .12s ease;
+    font-weight: 800;
+    font-size: clamp(0.5rem, 2vw, 0.78rem);
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 18px rgba(0,0,0,0.35);
+    transition: transform .15s ease, box-shadow .15s ease, filter .15s ease, opacity .15s ease;
+    backdrop-filter: blur(3px);
+}
+
+.buttonContainer button::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+    pointer-events: none;
 }
 
 .buttonContainer button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 26px rgba(2,6,23,0.55);
+    filter: brightness(1.15) saturate(1.2);
+}
+
+.buttonContainer button:focus-visible {
+    outline: 2px solid rgba(255,255,255,0.4);
+    outline-offset: 2px;
+}
+
+.buttonContainer button:active {
+    transform: translateY(0);
+}
+
+.buttonContainer button > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* Individual language colors */
-.buttonContainer .html-btn { background: #e34f26; color: #fff; }
-.buttonContainer .css-btn { background: #2965f1; color: #fff; }
-.buttonContainer .js-btn { background: #f7df1e; color: #000; }
-.buttonContainer .js-adv-btn { background: #8a2be2; color: #fff; }
-.buttonContainer .py-btn { background: #306998; color: #fff; }
+.buttonContainer .html-btn {
+    background: linear-gradient(135deg, #ffa889, #cf5a3f 48%, #ca503a);
+    box-shadow: 0 0 14px rgba(255, 122, 81, 0.8), inset 0 1px 0 rgba(255,255,255,0.4);
+    color: #191919;
+}
+.buttonContainer .css-btn {
+    background: linear-gradient(135deg, #a8c0e6, #6c82b4 50%, #546baf);
+    box-shadow: 0 0 14px rgba(90, 149, 255, 0.85), inset 0 1px 0 rgba(255,255,255,0.38);
+    color: #191919;
+}
+.buttonContainer .js-btn {
+    background: linear-gradient(135deg, #fff49d, #f9dd2d 42%, #d7b700);
+    box-shadow: 0 0 16px rgba(250, 215, 53, 0.9), inset 0 1px 0 rgba(255,255,255,0.45);
+    color: #191919;
+}
+.buttonContainer .js-adv-btn {
+    background: linear-gradient(135deg, #c38bff, #8a2be2 50%, #5c17b9);
+    box-shadow: 0 0 16px rgba(170, 104, 255, 0.9), inset 0 1px 0 rgba(255,255,255,0.38);
+    color: #191919;
+}
+.buttonContainer .py-btn {
+    background: linear-gradient(135deg, #4e95c7, #3d78d2 48%, #2246a0);
+    box-shadow: 0 0 16px rgba(92, 164, 255, 0.85), inset 0 1px 0 rgba(255,255,255,0.4);
+    color: #191919;
+}
+.buttonContainer .ahk-btn {
+    background: linear-gradient(135deg, #be7070, #962828 52%, #5e0000);
+    box-shadow: 0 0 15px rgba(255, 98, 98, 0.8), inset 0 1px 0 rgba(255,255,255,0.38);
+    color: #191919;
+}
+.buttonContainer [class~="c++-btn"] {
+    background: linear-gradient(135deg, #5078aa, #0f2f55 50%, #021431);
+    box-shadow: 0 0 15px rgba(88, 156, 255, 0.8), inset 0 1px 0 rgba(255,255,255,0.38);
+    color: #191919;
+}
+.buttonContainer .verse-btn {
+    background: linear-gradient(135deg, #7ae9bd, #16a765 48%, #0d7c4d);
+    box-shadow: 0 0 15px rgba(72, 215, 165, 0.85), inset 0 1px 0 rgba(255,255,255,0.38);
+    color: #191919;
+}
 
-.buttonContainer .html-btn:hover { background: #c74420; }
-.buttonContainer .css-btn:hover { background: #234fcf; }
-.buttonContainer .js-btn:hover { background: #e6d312; }
-.buttonContainer .js-adv-btn:hover { background: #6f1fc0; }
-.buttonContainer .py-btn:hover { background: #274f7a; }
+.buttonContainer .html-btn:hover,
+.buttonContainer .css-btn:hover,
+.buttonContainer .js-btn:hover,
+.buttonContainer .js-adv-btn:hover,
+.buttonContainer .py-btn:hover,
+.buttonContainer .ahk-btn:hover,
+.buttonContainer [class~="c++-btn"]:hover,
+.buttonContainer .verse-btn:hover {
+    box-shadow: 0 0 20px rgba(255,255,255,0.22), 0 8px 22px rgba(0,0,0,0.38);
+    filter: brightness(1.1) saturate(1.2);
+}
 
 /* Menu button (visible on content pages) */
 .menu-btn {
@@ -97,6 +185,9 @@ body {
 #jsContent,
 #pythonContent,
 #jsComplexContent,
+#ahkContent,
+[id="c++Content"],
+#verseContent,
 div.HTML,
 div.CSS,
 div.JavaScript,
@@ -159,6 +250,14 @@ ul, ol {
     padding-left: 0.6rem;
     line-height: 1.9;
     list-style-position: inside;
+}
+
+#StartContent > ul {
+    line-height: 1.35;
+}
+
+#StartContent > ul > li {
+    margin-bottom: 0.2rem;
 }
 
 li {
@@ -352,8 +451,28 @@ details details details {
 /* responsive tweaks */
 @media (max-width: 900px) {
     body { padding: 18px 12px; }
-    .buttonContainer { flex-wrap: wrap; }
+    .button-row {
+        gap: 8px;
+    }
+    .buttonContainer button {
+        padding: 7px 8px;
+    }
     #img { width: 60%; }
+}
+
+@media (max-width: 560px) {
+    .buttonContainer {
+        padding: 0 4px;
+    }
+
+    .button-row {
+        gap: 6px;
+    }
+
+    .buttonContainer button {
+        padding: 4px 1px;
+        border-radius: 10px;
+    }
 }
 
 /* Toggle button for hidden examples */
