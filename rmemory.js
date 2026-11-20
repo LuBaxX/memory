@@ -1,15 +1,22 @@
-﻿(() => {
+(() => {
     'use strict';
     const courses = [
-        { id: 'htmlContent', name: 'HTML', icon: '</>', color: '#ffb291', tag: 'STRUCTURER', description: 'Du document aux formulaires. Donne du sens à chaque élément.' },
-        { id: 'cssContent', name: 'CSS', icon: '#', color: '#9fbaff', tag: 'METTRE EN FORME', description: 'Cascade, Flexbox, Grid. Comprends ce qui fait tenir une interface.' },
-        { id: 'jsContent', name: 'JavaScript', icon: 'JS', color: '#edda86', tag: 'FAIRE INTERAGIR', description: 'Fonctions, événements et promesses. Fais vivre tes idées.' },
-        { id: 'jsComplexContent', name: 'Front / Back', icon: '{ }', color: '#c4abfa', tag: 'CONNECTER', description: 'React, Express et SQL. Suis les données de la vue à la base.' },
-        { id: 'pythonContent', name: 'Python', icon: 'Py', color: '#8fcea9', tag: 'EXPLORER', description: 'Des collections aux API. Retrouve les bons réflexes.' },
-        { id: 'ahkContent', name: 'AutoHotkey', icon: '⌘', color: '#f0a6b8', tag: 'AUTOMATISER', description: 'Raccourcis et scripts v2. Une action claire, un geste de moins.' },
-        { id: 'luauContent', name: 'Luau / Roblox', icon: '◇', color: '#8dddf7', tag: 'NOUVEAU', description: 'Crée des mondes. Typage, réseau et architecture Roblox.' },
-        { id: 'c++Content', name: 'C++', icon: 'C+', color: '#738397', tag: 'À VENIR', description: 'Une prochaine étape. Le parcours sera construit plus tard.', soon: true },
-        { id: 'verseContent', name: 'Verse', icon: 'V.', color: '#738397', tag: 'À VENIR', description: 'Un emplacement réservé pour une prochaine exploration.', soon: true }
+        { id: 'htmlContent', name: 'HTML', icon: '</>', color: '#ff9966', tag: 'STRUCTURER', description: 'Du document aux formulaires. Donne du sens à chaque élément.' },
+        { id: 'cssContent', name: 'CSS', icon: '#', color: '#75aaff', tag: 'METTRE EN FORME', description: 'Cascade, Flexbox, Grid. Comprends ce qui fait tenir une interface.' },
+        { id: 'jsContent', name: 'JavaScript', icon: 'JS', color: '#ffe254', tag: 'FAIRE INTERAGIR', description: 'Fonctions, événements et promesses. Fais vivre tes idées.' },
+        { id: 'jsComplexContent', name: 'Front / Back', icon: '{ }', color: '#bc96ff', tag: 'CONNECTER', description: 'React, Express et SQL. Suis les données de la vue à la base.' },
+        { id: 'pythonContent', name: 'Python', icon: 'Py', color: '#79e59c', tag: 'EXPLORER', description: 'Des collections aux API. Retrouve les bons réflexes.' },
+        { id: 'ahkContent', name: 'AutoHotkey', icon: '⌘', color: '#ff8db9', tag: 'AUTOMATISER', description: 'Raccourcis et scripts v2. Une action claire, un geste de moins.' },
+        { id: 'luauContent', name: 'Luau / Roblox', icon: '◇', color: '#62e7ff', tag: 'NOUVEAU', description: 'Crée des mondes. Typage, réseau et architecture Roblox.' },
+        { id: 'c++Content', name: 'C++', icon: 'C+', color: '#acbdf1', tag: 'À VENIR', description: 'Une prochaine étape. Le parcours sera construit plus tard.', soon: true },
+        { id: 'verseContent', name: 'Verse', icon: 'V.', color: '#c5e96c', tag: 'À VENIR', description: 'Un emplacement réservé pour une prochaine exploration.', soon: true },
+        {"id": "goContent", "name": "Go", "icon": "Go", "color": "#53d3ca", "tag": "À VENIR", "description": "Go : types, fonctions et concurrence. Le cours sera ajouté ultérieurement.", "soon": true},
+        {"id": "shellContent", "name": "PowerShell & CMD", "icon": "PS", "color": "#8f9fff", "tag": "À VENIR", "description": "Deux interpréteurs de commandes distincts. Le futur cours séparera leurs syntaxes.", "soon": true},
+        {"id": "kotlinContent", "name": "Kotlin", "icon": "Kt", "color": "#f7a9df", "tag": "À VENIR", "description": "Kotlin : bases, types et programmation orientée objet. Cours à venir.", "soon": true},
+        {"id": "pythonAIContent", "name": "Python : programmer une IA", "icon": "IA", "color": "#ffc571", "tag": "À VENIR", "description": "Un futur parcours consacré à la création de systèmes d’IA avec Python. Aucun service ni clé API n’est utilisé ici.", "soon": true},
+        {"id": "asmContent", "name": "Assembleur", "icon": "ASM", "color": "#d6a1fc", "tag": "À VENIR", "description": "Le cours précisera une architecture et un assembleur avant les exemples. Parcours à venir.", "soon": true},
+        {"id": "brainfuckContent", "name": "Brainfuck", "icon": "BF", "color": "#f68f84", "tag": "À VENIR", "description": "Un futur détour par un langage ésotérique aux instructions minimales. Pas encore de cours.", "soon": true},
+        {"id": "ookContent", "name": "Ook!", "icon": "Ook", "color": "#99e1c4", "tag": "À VENIR", "description": "Un futur parcours ésotérique autour des paires de mots Ook. Pas encore de cours.", "soon": true}
     ];
     const sections = () => [...document.querySelectorAll('div[id$="Content"]')];
     const storage = {
@@ -53,7 +60,7 @@
         const homeLink = document.querySelector('.nav-home');
         if (home) homeLink.setAttribute('aria-current', 'page');
         else homeLink.removeAttribute('aria-current');
-        document.title = home ? 'Rmemory — Ta bibliothèque de code' : (courses.find(course => course.id === id)?.name ?? 'Rmemory') + ' — Rmemory';
+        document.title = home ? 'Rmemory — BIBLIOTHÈQUE de code' : (courses.find(course => course.id === id)?.name ?? 'Rmemory') + ' — Rmemory';
         if (!home) storage.set('rmemory:last', '#' + id);
         closeMenu();
         if (focus) {
@@ -106,8 +113,11 @@
         let chapterTotal = 0;
         for (const course of courses) {
             const section = document.getElementById(course.id);
+            section.style.setProperty('--course', course.color);
+            const navigationButton = document.querySelector('[data-section="' + course.id + '"]');
+            navigationButton?.style.setProperty('--course', course.color);
             const chapters = section.querySelectorAll(':scope > details[id]').length;
-            const episodes = section.querySelectorAll('details details').length;
+            const episodes = section.querySelectorAll('.guided-step').length;
             chapterTotal += chapters;
             const card = document.createElement('a');
             card.className = 'course-card';
@@ -154,7 +164,7 @@
                     if (!episode.id) episode.id = chapter.id + '-episode-' + (episodeIndex + 1);
                 }
             }
-            for (const detail of section.querySelectorAll('details')) {
+            for (const detail of section.querySelectorAll('details:not(.lesson-reference):not(.demo-fixture)')) {
                 const summary = detail.querySelector(':scope > summary');
                 if (!summary) continue;
                 const title = summary.textContent.trim();
@@ -169,7 +179,7 @@
                 });
             }
         }
-        document.querySelectorAll('.lesson-code code, .py-code code, .lesson-output, .py-output').forEach(normalizeCode);
+        document.querySelectorAll('.lesson-code code, .py-code code, .lesson-output, .py-output, .demo-source, .demo-markup').forEach(normalizeCode);
         document.querySelectorAll('.console').forEach((box, index) => {
             const code = box.querySelector('code');
             if (!code) return;
@@ -207,6 +217,67 @@
 
     function normalizeSearch(value) {
         return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    }
+
+    function prepareAccordions() {
+        let groupIndex = 0;
+        const groups = new WeakMap();
+        for (const detail of document.querySelectorAll('div[id$="Content"] details')) {
+            const parent = detail.parentElement;
+            if (!groups.has(parent)) groups.set(parent, 'reading-group-' + groupIndex++);
+            // Native exclusive groups also handle keyboard activation and direct links.
+            detail.setAttribute('name', groups.get(parent));
+            detail.addEventListener('toggle', () => {
+                if (detail.open) {
+                    for (const sibling of parent.children) {
+                        if (sibling !== detail && sibling.tagName === 'DETAILS') sibling.open = false;
+                    }
+                } else {
+                    // Reopening a chapter starts without old, still-open child episodes.
+                    for (const child of detail.querySelectorAll('details[open]')) child.open = false;
+                }
+            });
+        }
+    }
+
+    function preparePreviews() {
+        const baseStyle = `
+            * { box-sizing: border-box; }
+            body { margin: 0; padding: 18px; background: #f7f9fc; color: #1e293b;
+                font: 15px/1.6 system-ui, sans-serif; overflow-wrap: anywhere; }
+            h1 { font-size: 27px; } h2 { font-size: 22px; }
+            a { color: #1d4ed8; } button,input { font: inherit; }
+            button { padding: 7px 12px; border: 1px solid #9eafc4; border-radius: 6px; color: #172033; }
+            .boite,.cadre,.carte { background: #e7edf6; padding: 10px; }
+            .actions { padding: 10px; border: 1px dashed #9eafc4; }
+            .grille > div { padding: 12px; background: #dbeafe; border: 1px solid #93b5e5; }
+            .carte { min-height: 100px; } .badge { background: #fce7b0; padding: 3px 7px; }
+            .etiquette { background: #dbeafe; margin: 5px; padding: 5px; }
+            th,td { padding: 5px 9px; border: 1px solid #b3c1d3; } table { border-collapse: collapse; }
+            summary { cursor: pointer; } pre { margin: 10px 0; }
+        `;
+        function load(box) {
+            if (box.dataset.ready) return;
+            box.dataset.ready = 'true';
+            const markup = box.querySelector('.demo-source').textContent.trim();
+            const css = box.dataset.previewKind === 'css'
+                ? box.closest('.guided-step').querySelector('.lesson-code code').textContent : '';
+            const frame = document.createElement('iframe');
+            frame.className = 'example-frame';
+            frame.title = 'Aperçu : ' + box.closest('.guided-step').querySelector('summary').textContent;
+            frame.setAttribute('sandbox', '');
+            frame.referrerPolicy = 'no-referrer';
+            const head = `<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:"><style>${baseStyle}\n${css}</style>`;
+            frame.srcdoc = /<html[\s>]/i.test(markup)
+                ? markup.replace(/<head>/i, '<head>' + head)
+                : '<!doctype html><html lang="fr"><head>' + head + '</head><body>' + markup + '</body></html>';
+            box.append(frame);
+        }
+        for (const box of document.querySelectorAll('.lesson-preview')) {
+            const episode = box.closest('details.guided-step');
+            episode.addEventListener('toggle', () => { if (episode.open) load(box); });
+            if (episode.open) load(box);
+        }
     }
 
     function renderSearch() {
@@ -249,6 +320,8 @@
     function init() {
         buildCards();
         prepareLessons();
+        prepareAccordions();
+        preparePreviews();
         document.querySelectorAll('[data-section]').forEach(button => button.addEventListener('click', () => navigate('#' + button.dataset.section)));
         document.getElementById('menuBtn').addEventListener('click', () => navigate('#StartContent'));
         document.getElementById('mobile-menu').addEventListener('click', () => {
@@ -301,3 +374,4 @@
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
     else init();
 })();
+
