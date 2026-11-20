@@ -70,6 +70,27 @@
         }
     };
 
+    let scrollRequest = 0;
+    function alignReading(target) {
+        const request = ++scrollRequest;
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            if (request !== scrollRequest || !target.isConnected) return;
+            const heading = document.querySelector('.site-header');
+            const offset = (heading ? heading.getBoundingClientRect().bottom : 0) + 16;
+            window.scrollTo({ top: window.scrollY + target.getBoundingClientRect().top - offset, behavior: 'instant' });
+        }));
+    }
+    function closeReading(detail) {
+        detail.open = false;
+        for (const child of detail.querySelectorAll('details[open]')) child.open = false;
+    }
+    function openReading(detail) {
+        for (const sibling of detail.parentElement.children) {
+            if (sibling !== detail && sibling.tagName === 'DETAILS') closeReading(sibling);
+        }
+        detail.open = true;
+    }
+
     function reveal(hash, { scroll = true } = {}) {
         let id;
         try { id = decodeURIComponent(hash.replace(/^#/, '')); } catch { return; }
@@ -81,7 +102,7 @@
         window.showContent(section.id, { focus: false });
         let node = target;
         while (node && node !== section) {
-            if (node.tagName === 'DETAILS') node.open = true;
+            if (node.tagName === 'DETAILS') openReading(node);
             node = node.parentElement;
         }
         const focusTarget = target.tagName === 'DETAILS' ? target.querySelector('summary') : target.querySelector('h1');
@@ -92,7 +113,7 @@
         if (section.id !== 'StartContent') storage.set('rmemory:last', '#' + id);
         if (scroll) {
             if (target === section) window.scrollTo({ top: 0, behavior: 'instant' });
-            else target.scrollIntoView({ block: 'start' });
+            else alignReading(target);
         }
     }
 
@@ -220,42 +241,26 @@
     }
 
     function prepareAccordions() {
-        let groupIndex = 0;
-        const groups = new WeakMap();
         for (const detail of document.querySelectorAll('div[id$="Content"] details')) {
-            const parent = detail.parentElement;
-            if (!groups.has(parent)) groups.set(parent, 'reading-group-' + groupIndex++);
-            // Native exclusive groups also handle keyboard activation and direct links.
-            detail.setAttribute('name', groups.get(parent));
-            detail.addEventListener('toggle', () => {
+            const summary = detail.querySelector(':scope > summary');
+            summary.addEventListener('click', event => {
+                if (event.defaultPrevented || event.target.closest('a, button, input')) return;
+                event.preventDefault();
                 if (detail.open) {
-                    for (const sibling of parent.children) {
-                        if (sibling !== detail && sibling.tagName === 'DETAILS') sibling.open = false;
-                    }
+                    ++scrollRequest;
+                    closeReading(detail);
                 } else {
-                    // Reopening a chapter starts without old, still-open child episodes.
-                    for (const child of detail.querySelectorAll('details[open]')) child.open = false;
+                    openReading(detail);
+                    alignReading(detail);
                 }
+            });
+            detail.addEventListener('toggle', () => {
+                if (detail.open) openReading(detail);
             });
         }
     }
 
     function preparePreviews() {
-        const baseStyle = `
-            * { box-sizing: border-box; }
-            body { margin: 0; padding: 18px; background: #f7f9fc; color: #1e293b;
-                font: 15px/1.6 system-ui, sans-serif; overflow-wrap: anywhere; }
-            h1 { font-size: 27px; } h2 { font-size: 22px; }
-            a { color: #1d4ed8; } button,input { font: inherit; }
-            button { padding: 7px 12px; border: 1px solid #9eafc4; border-radius: 6px; color: #172033; }
-            .boite,.cadre,.carte { background: #e7edf6; padding: 10px; }
-            .actions { padding: 10px; border: 1px dashed #9eafc4; }
-            .grille > div { padding: 12px; background: #dbeafe; border: 1px solid #93b5e5; }
-            .carte { min-height: 100px; } .badge { background: #fce7b0; padding: 3px 7px; }
-            .etiquette { background: #dbeafe; margin: 5px; padding: 5px; }
-            th,td { padding: 5px 9px; border: 1px solid #b3c1d3; } table { border-collapse: collapse; }
-            summary { cursor: pointer; } pre { margin: 10px 0; }
-        `;
         function load(box) {
             if (box.dataset.ready) return;
             box.dataset.ready = 'true';
@@ -267,7 +272,7 @@
             frame.title = 'Aperçu : ' + box.closest('.guided-step').querySelector('summary').textContent;
             frame.setAttribute('sandbox', '');
             frame.referrerPolicy = 'no-referrer';
-            const head = `<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:"><style>${baseStyle}\n${css}</style>`;
+            const head = `<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:"><style>${css}</style>`;
             frame.srcdoc = /<html[\s>]/i.test(markup)
                 ? markup.replace(/<head>/i, '<head>' + head)
                 : '<!doctype html><html lang="fr"><head>' + head + '</head><body>' + markup + '</body></html>';
